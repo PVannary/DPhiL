@@ -1,0 +1,8 @@
+@font-face {
+    font-family: GreekAlpha;
+    src: url(../public/fonts/GreekHouse Symbolized_Free.ttf);
+}
+
+#nav-pill-home {
+    font-family: GreekAlpha;
+}
