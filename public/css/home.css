@@ -1,8 +1,28 @@
-@font-face {
-    font-family: GreekAlpha;
-    src: url(../public/fonts/GreekHouse Symbolized_Free.ttf);
+/* Carousel Styling */
+.slide {
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
-#nav-pill-home {
-    font-family: GreekAlpha;
+.carousel-control.left, .carousel-control.right {
+    background-image: none;
+    color: #337ab7;
+}
+.carousel-caption h1 {
+    font-size: 4em;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    padding-bottom: .4em;
+    color: #000;
+}
+
+/* Jumbotron Styling */
+.container-fluid .jumbotron {
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
+.jumbotron p {
+    font-size: 16px;
 }
