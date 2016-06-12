@@ -9,6 +9,7 @@
 .carousel-control.left, .carousel-control.right {
     background-image: none;
     color: #337ab7;
+    top: 50%;
 }
 .carousel-caption h1 {
     font-size: 4em;
@@ -24,5 +25,5 @@
     border-radius: 0px;
 }
 .jumbotron p {
-    font-size: 16px;
+    font-size: 14px;
 }
