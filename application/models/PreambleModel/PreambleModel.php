@@ -1,6 +1,6 @@
 <?php
 
-/* about page displaying chapter history */
+/* about page displaying preamble */
 class PreambleModel extends Model{
     const PAGE_TITLE = 'Preamble - GSU Delta Phi Lambda';
 

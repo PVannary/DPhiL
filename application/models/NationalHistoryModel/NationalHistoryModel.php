@@ -1,6 +1,6 @@
 <?php
 
-/* about page displaying chapter history */
+/* about page displaying national history */
 class NationalHistoryModel extends Model{
     const PAGE_TITLE = 'National History - GSU Delta Phi Lambda';
 

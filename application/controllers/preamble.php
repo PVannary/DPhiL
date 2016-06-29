@@ -1,6 +1,6 @@
 <?php
 
-/* philanthropy controller */
+/* preamble controller */
 class Preamble extends Controller {
 
     // index model function when page is accessed
