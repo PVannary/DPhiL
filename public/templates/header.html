@@ -7,9 +7,10 @@
                 </div>
                 <div class="media-body media-middle">
                     <div class="text-center">
-                        <h1 style="font-family: 'Petit Formal Script', cursive; font-weight: bold; font-size: 44px">Delta Phi Lambda Sorority, Inc.</h1>
-                        <h3 style="font-family: 'Raleway', sans-serif; font-size: 32px">Georgia State University</h3>
-                        <h3 style="font-family: 'Raleway', sans-serif; font-size: 32px">Gamma Chapter</h3>
+                        <h1 style="font-family: 'Petit Formal Script', cursive; font-weight: bold; font-size: 44px"><?php echo SITE_HEADER; ?></h1>
+                        <?php foreach(unserialize(SITE_SUBHEADER) as $subHeader): ?>
+                            <h3 style="font-family: 'Raleway', sans-serif; font-size: 32px"><?php echo $subHeader; ?></h3>
+                        <?php endforeach; ?>
                     </div>
                     <div>
                         <i class="fa fa-instagram fa-2x pull-right" aria-hidden="true"></i>
@@ -20,31 +21,37 @@
             </div>
 
             <ul class="nav nav-pills nav-justified">
-                <li role="presentation" class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="http://localhost/site-dphil/about/">Chapter History</a></li>
-                        <li><a href="http://localhost/site-dphil/nationalhistory/">National History</a></li>
-                        <li><a href="http://localhost/site-dphil/preamble/">Preamble</a></li>
-                    </ul>
-                </li>
-                <li role="presentation" class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Meet the Sisters <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Chapter Roster</a></li>
-                        <li><a href="#">Chapter Leaders</a></li>
-                    </ul>
-                </li>
-                <li role="presentation" class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recruitment <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Recruitment FAQ</a></li>
-                        <li><a href="http://localhost/site-dphil/antihazing/">Anti-Hazing</a></li>
-                    </ul>
-                </li>
-                <li role="presentation"><a href="http://localhost/site-dphil/philanthropy/">Philanthropy</a></li>
-                <li role="presentation"><a href="#">Gallery</a></li>
-                <li role="presentation"><a href="http://localhost/site-dphil/contact/">Contact</a></li>
+                <?php foreach(unserialize(SITE_NAV) as $navItem): ?>
+                    <?php $href = $navItem['url']; ?>
+
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle"
+                           data-toggle="dropdown"
+                           role="button"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           <?php if ( !empty($href) ): ?>
+                                <?php $href = HOST_NAME . '/' . $href; ?>
+                                href="<?php echo $href; ?>"
+                           <?php endif; ?>
+                           >
+                           <?php echo $navItem['title']; ?> <?php if ( empty($href) ): ?><span class="caret"></span><?php endif; ?>
+                       </a>
+                       <?php if ( !empty($navItem['children']) && empty($href) ): ?>
+                            <ul class="dropdown-menu">
+                                <?php foreach($navItem['children'] as $navSubItem): ?>
+                                    <?php $subHref = $navSubItem['url']; ?>
+
+                                    <?php if ( !empty($subHref) ): ?>
+                                        <?php $subHref = HOST_NAME . '/' . $subHref; ?>
+                                    <?php endif; ?>
+
+                                    <li><a href="<?php echo $subHref; ?>"><?php echo $navSubItem['title']; ?></a></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                    </li>
+                <?php endforeach; ?>
             </ul>
         </div>
     </div>

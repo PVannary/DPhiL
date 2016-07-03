@@ -5,6 +5,7 @@ class HomeModel extends Model{
     protected $carouselContent = array();
 
     const PAGE_TITLE = 'Home - GSU Delta Phi Lambda';
+    const QUOTE      = '"Let our light shine forth"';
 
     public function __construct() {
         $this->title = self::PAGE_TITLE;
