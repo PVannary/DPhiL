@@ -8,3 +8,6 @@
 
     // base model class
     include 'core/Model.php';
+
+    // include config
+    include 'config/config.php';

@@ -9,19 +9,16 @@
                         <h2 id="home-motto" class="text-center">"Let our light shine forth"</h2>
                     </div>
                 </div>
+
                 <div class="row">
                     <div id="carousel-wrapper" class="col-lg-6">
                         <div id="carouselSlide" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
-                                    <div class="slide item active">
-                                        <img src="/site-dphil/public/images/dfl_rho_class.JPG">
-                                    </div>
-                                    <div class="slide item">
-                                        <img src="/site-dphil/public/images/dfl_rho_class_theta.JPG">
-                                    </div>
-                                    <div class="slide item">
-                                        <img src="/site-dphil/public/images/dfl_rho_class_ca.JPG">
-                                    </div>
+                                    <?php foreach($data->carouselContent as $id => $carouselItem): ?>
+                                        <div class="slide item <?php echo $carouselItem->active; ?>">
+                                            <img src="<?php echo $carouselItem->image; ?>">
+                                        </div>
+                                    <?php endforeach; ?>
                                 </div>
 
                                 <a class="left carousel-control" href="#carouselSlide" role="button" data-slide="prev">
@@ -34,15 +31,11 @@
                                 </a>
 
                                 <ol class="carousel-indicators clearfix">
-                                    <li data-target="#carouselSlide" data-slide-to="0" class="active">
-                                        <img src="/site-dphil/public/images/dfl_rho_class.JPG">
-                                    </li>
-                                    <li data-target="#carouselSlide" data-slide-to="1">
-                                        <img src="/site-dphil/public/images/dfl_rho_class_theta.JPG">
-                                    </li>
-                                    <li data-target="#carouselSlide" data-slide-to="2">
-                                        <img src="/site-dphil/public/images/dfl_rho_class_ca.JPG">
-                                    </li>
+                                    <?php foreach($data->carouselContent as $id => $carouselItem): ?>
+                                        <li data-target="#carouselSlide" data-slide-to="<?php echo $id; ?>" class="<?php echo $carouselItem->active; ?>">
+                                            <img src="<?php echo $carouselItem->image; ?>">
+                                        </li>
+                                    <?php endforeach; ?>
                                 </ol>
                         </div>
                     </div>
