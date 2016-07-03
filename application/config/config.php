@@ -7,7 +7,7 @@ foreach ( glob(ABSOLUTE_PATH . '/application/lib/*.php') as $fileName ) { includ
 
 // header
 define('SITE_HEADER',    'Delta Phi Lambda Sorority, Inc.');
-define('SITE_SUBHEADER', serialize(array('Georgia State University', 'Gamma Chapter')));
+define('SITE_SUBHEADER', serialize(array('Gamma Chapter')));
 
 // links
 define('HOST_NAME', 'http://' . getHostByName(getHostName()) . '/site-dphil');

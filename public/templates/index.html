@@ -10,7 +10,9 @@
 
     <body>
         <?php include ('public/templates/header.html'); ?>
-        <?php include ($this->_contentFile); ?>
+        <div class="container-fluid">
+            <?php include ($this->_contentFile); ?>
+        </div>
         <?php include ('public/templates/footer.html'); ?>
     </body>
 </html>

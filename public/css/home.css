@@ -1,6 +1,10 @@
 /* Carousel Styling */
 #carouselSlide {
-    width: 400;
+    height: 500px;
+}
+
+#carouselSlide img {
+    height: 500px;
 }
 /* Indicators list style */
 #carouselSlide .carousel-indicators {

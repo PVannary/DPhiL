@@ -1,68 +1,66 @@
 <link rel="stylesheet" type="text/css" href="/site-dphil/public/css/home.css">
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-            <div class="jumbotron">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2 id="home-motto" class="text-center"><?php echo HomeModel::QUOTE; ?></h2>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div id="carousel-wrapper" class="col-lg-6">
-                        <div id="carouselSlide" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    <?php foreach($data->carouselContent as $id => $carouselItem): ?>
-                                        <div class="slide item <?php echo $carouselItem->active; ?>">
-                                            <img src="<?php echo $carouselItem->image; ?>">
-                                        </div>
-                                    <?php endforeach; ?>
-                                </div>
-
-                                <a class="left carousel-control" href="#carouselSlide" role="button" data-slide="prev">
-                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="right carousel-control" href="#carouselSlide" role="button" data-slide="next">
-                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-
-                                <ol class="carousel-indicators clearfix">
-                                    <?php foreach($data->carouselContent as $id => $carouselItem): ?>
-                                        <li data-target="#carouselSlide" data-slide-to="<?php echo $id; ?>" class="<?php echo $carouselItem->active; ?>">
-                                            <img src="<?php echo $carouselItem->image; ?>">
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ol>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <p>Delta Phi Lambda is the only Asian-Interest sorority at Georgia State University. Our purpose is to promote multiculturalism with an emphasis on Asian awareness, to reach out to the community as a whole, and to embrace fellow collegiate women into a nurturing environment.</p>
-                        <p>We hope to expand our sisterhood on a larger scale to create a support system of sisterhood across the United States. By doing so, sisters would be able to find other sisters no matter where their plans may take them. Moreover, having additional chapters nationally will help sisters better adjust to their new environment should their plans take them to greater things in life.</p>
-                        <p>We hope to develop well-rounded individuals by both nurturing our natural talents, as well as by helping each other strengthen our weakness. By accomplishing these two tasks, we feel that our members are better prepared to walk into the real world with confidence.</p>
-                        <p>Delta Phi Lambda provides a once in a lifetime experience that exhibits our unique sisterhood, community involvement, preparedness for the real world, and tremendous leadership.</p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-6 col-md-4 col-lg-4">
-                        <p>HELLO!</p>
-                    </div>
-
-                    <div class="col-sm-6 col-md-4 col-lg-4">
-                        <blockquote class="instagram-media" data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/BGh2IzMG0Gy/" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A photo posted by VPF (@vpf_test)</a> on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2016-06-11T21:12:36+00:00">Jun 11, 2016 at 2:12pm PDT</time></p></div></blockquote>
-                        <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
-                    </div>
-
-                    <div class="col-sm-6 col-md-4 col-lg-4">
-                        <a class="twitter-timeline" data-lang="en" data-width="800" data-height="700" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/RiftProgress">Tweets by RiftProgress</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </div>
-                </div>
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <!--
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 id="home-motto" class="text-center"><?php echo HomeModel::QUOTE; ?></h2>
             </div>
         </div>
+        -->
+        <div class="row">
+            <div id="carousel-wrapper" class="col-lg-10 col-lg-push-1">
+                <div id="carouselSlide" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <?php foreach($data->carouselContent as $id => $carouselItem): ?>
+                                <div class="slide item <?php echo $carouselItem->active; ?>">
+                                    <img src="<?php echo $carouselItem->image; ?>">
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+
+                        <a class="left carousel-control" href="#carouselSlide" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carouselSlide" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+
+                        <ol class="carousel-indicators clearfix">
+                            <?php foreach($data->carouselContent as $id => $carouselItem): ?>
+                                <li data-target="#carouselSlide" data-slide-to="<?php echo $id; ?>" class="<?php echo $carouselItem->active; ?>">
+                                    <img src="<?php echo $carouselItem->image; ?>">
+                                </li>
+                            <?php endforeach; ?>
+                        </ol>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <p>Delta Phi Lambda is the only Asian-Interest sorority at Georgia State University. Our purpose is to promote multiculturalism with an emphasis on Asian awareness, to reach out to the community as a whole, and to embrace fellow collegiate women into a nurturing environment.</p>
+                <p>We hope to expand our sisterhood on a larger scale to create a support system of sisterhood across the United States. By doing so, sisters would be able to find other sisters no matter where their plans may take them. Moreover, having additional chapters nationally will help sisters better adjust to their new environment should their plans take them to greater things in life.</p>
+                <p>We hope to develop well-rounded individuals by both nurturing our natural talents, as well as by helping each other strengthen our weakness. By accomplishing these two tasks, we feel that our members are better prepared to walk into the real world with confidence.</p>
+                <p>Delta Phi Lambda provides a once in a lifetime experience that exhibits our unique sisterhood, community involvement, preparedness for the real world, and tremendous leadership.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-4">
+                <p>HELLO!</p>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-4">
+                <blockquote class="instagram-media" data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/BGh2IzMG0Gy/" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A photo posted by VPF (@vpf_test)</a> on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2016-06-11T21:12:36+00:00">Jun 11, 2016 at 2:12pm PDT</time></p></div></blockquote>
+                <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-4">
+                <a class="twitter-timeline" data-lang="en" data-width="800" data-height="700" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/RiftProgress">Tweets by RiftProgress</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+        </div>
+
     </div>
 </div>

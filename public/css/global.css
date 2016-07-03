@@ -6,3 +6,31 @@
 .jumbotron p {
     font-size: 14px;
 }
+
+/* navbar collapse width settings */
+@media ( max-width: 1600px ) {
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+    .navbar-collapse.collapse.in {
+        display: block !important;
+    }
+    .navbar-header .collapse, .navbar-toggle {
+        display: block !important;
+    }
+    .navbar-header {
+        float: none;
+    }
+
+    #slogan {
+        display: none !important;
+    }
+}
+
+.navbar-toggle {
+    background-color:#211F5F;
+}
+
+.navbar-toggle span {
+    background-color: white;
+}
