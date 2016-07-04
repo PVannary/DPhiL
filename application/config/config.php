@@ -34,11 +34,11 @@ define('SITE_NAV', serialize(
             'About' => array(
                 'title' => 'About',
                 'url' => '',
-                'icon' => 'fa fa-info',
+                'icon' => 'fa fa-info-circle',
                 'children' => array(
-                    array('title' => 'Chapter History',  'url' => 'about/chapter_history',  'icon' => 'glyphicon glyphicon-asterisk', 'children' => array()),
-                    array('title' => 'National History', 'url' => 'about/national_history', 'icon' => 'glyphicon glyphicon-asterisk', 'children' => array()),
-                    array('title' => 'Preamble',         'url' => 'about/preamble',         'icon' => 'glyphicon glyphicon-asterisk', 'children' => array())
+                    array('title' => 'Chapter History',  'url' => 'about/chapter_history',  'icon' => '', 'children' => array()),
+                    array('title' => 'National History', 'url' => 'about/national_history', 'icon' => '', 'children' => array()),
+                    array('title' => 'Preamble',         'url' => 'about/preamble',         'icon' => '', 'children' => array())
                     )
                 ),
             'Sisters' => array(
@@ -46,8 +46,8 @@ define('SITE_NAV', serialize(
                 'url' => '',
                 'icon' => 'fa fa-users',
                 'children' => array(
-                    array('title' => 'Chapter Roster',  'url' => 'sisters/roster', 'icon' => 'glyphicon glyphicon-asterisk', 'children' => array()),
-                    array('title' => 'Chapter Leaders', 'url' => 'sister/leaders', 'icon' => 'glyphicon glyphicon-asterisk', 'children' => array()),
+                    array('title' => 'Chapter Roster',  'url' => 'sisters/roster', 'icon' => '', 'children' => array()),
+                    array('title' => 'Chapter Leaders', 'url' => 'sister/leaders', 'icon' => '', 'children' => array()),
                     )
                 ),
             'Recruitment' => array(
@@ -55,7 +55,7 @@ define('SITE_NAV', serialize(
                 'url' => '',
                 'icon' => 'fa fa-file-text',
                 'children' => array(
-                    array('title' => 'Anti-Hazing', 'url' => 'recruitment/antihazing', 'icon' => 'glyphicon glyphicon-asterisk','children' => array())
+                    array('title' => 'Anti-Hazing', 'url' => 'recruitment/antihazing', 'icon' => '','children' => array())
                     )
                 ),
             'Philanthropy' => array(

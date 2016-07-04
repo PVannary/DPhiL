@@ -1,15 +1,29 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 id="about-chapter-title"class="text-center">Anti-Hazing Statement</h2>
-                </div>
-            </div>
+<?php
 
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <p>No chapter, colony, member or alumna of Delta Phi Lambda Sorority, Inc. ("D Phi L") shall condone hazing in any form and defines hazing as "Any action taken or situation created, intentionally, whether on or off fraternity premises, to produce mental or physical discomfort, embarrassment, harassment, or ridicule.</p>
+/* about page displaying recruitment information about the chapter */
+class RecruitmentModel extends Model {
+    protected $_contentPage;
+    protected $_pageContent;
+    protected $_contentTitle;
+
+    const PAGE_TITLE = 'About - GSU Delta Phi Lambda';
+
+    public function __construct($module, $params) {
+        if ( !empty($params) ) {
+            $this->_contentPage = $params[0];
+            $this->_setContent();
+        }
+
+        $this->title = self::PAGE_TITLE;
+    }
+
+    protected function _setContent() {
+        /* temporary code */
+
+        switch($this->_contentPage) {
+            case 'antihazing':
+                $this->_contentTitle = 'Anti-Hazing Statement';
+                $this->_pageContent = "<p>No chapter, colony, member or alumna of Delta Phi Lambda Sorority, Inc. (\"D Phi L\") shall condone hazing in any form and defines hazing as \"Any action taken or situation created, intentionally, whether on or off fraternity premises, to produce mental or physical discomfort, embarrassment, harassment, or ridicule.</p>
                     <p>Activities included in this definition are:</p>
                     <ul>
                         <li>Any morally degrading or humiliating games and activities; and any other activities which are not consistent with academic achievement, fraternal law, ritual or policy or the regulations and policies of the educational institution or applicable state law.</li>
@@ -21,9 +35,12 @@
                         <li>Engaging in public stunts and buffoonery.</li>
                         <li>Forcing or requiring the violation of the chapter's respective university policies, federal, state or local law.</li>
                     </ul>
-                    <p>Any activity, as described above, upon which the initiation or admission into or association with D Phi L may be directly or indirectly conditioned, shall be presumed to be a "forced" activity, the willingness of an individual to participate in such an activity notwithstanding.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                    <p>Any activity, as described above, upon which the initiation or admission into or association with D Phi L may be directly or indirectly conditioned, shall be presumed to be a \"forced\" activity, the willingness of an individual to participate in such an activity notwithstanding.</p>";
+                break;
+        }
+    }
+
+    protected function _getContentFromDatabase() {
+        /* Database query here */
+    }
+}

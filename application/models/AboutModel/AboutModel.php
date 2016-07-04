@@ -1,6 +1,6 @@
 <?php
 
-/* about page displaying chapter history */
+/* about page displaying information about the chapter */
 class AboutModel extends Model {
     protected $_contentPage;
     protected $_pageContent;
