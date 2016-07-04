@@ -7,8 +7,14 @@
     font-size: 14px;
 }
 
+.navbar {
+    border-bottom: 4px solid #211F5F;
+    padding: 0px 20px;
+    background-color: #FFFFFF;
+}
+
 /* navbar collapse width settings */
-@media ( max-width: 1600px ) {
+@media ( max-width: 1120px ) {
     .navbar-collapse.collapse {
         display: none !important;
     }
@@ -27,10 +33,43 @@
     }
 }
 
+.navbar-nav li a:hover {
+    color: #C3C8C8;
+    background-color: #002147;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
 .navbar-toggle {
     background-color:#211F5F;
 }
 
 .navbar-toggle span {
     background-color: white;
+}
+
+.navbar-header img {
+    background-color: white;
+}
+
+.navbar-brand {
+    padding: 0px;
+}
+
+#footer {
+    color: #CCCCCC; /* #002654; */
+    height: 200px;
+    background-color: #000026;
+    border-top: 5px solid #000059;
+}
+
+#body-wrapper {
+    padding-top: 55px;
+    min-height: 755px;
+}
+
+#footer h3 {
+    border-bottom: 2px solid #000059;
 }
