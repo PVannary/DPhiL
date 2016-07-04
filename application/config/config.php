@@ -25,7 +25,7 @@ define('SITE_NAV', serialize(
                     )
                 ),
             'Sisters' => array(
-                'title' => 'Sisters',
+                'title' => 'The Sisters',
                 'url' => '',
                 'icon' => 'fa fa-users',
                 'children' => array(
@@ -65,3 +65,4 @@ define('SITE_NAV', serialize(
 
 // images
 define('IMG_DFL_CREST', '/site-dphil/public/images/dfl_crest.png');
+define('IMG_DFL_LOGO', '/site-dphil/public/images/dphil-logo.png');
