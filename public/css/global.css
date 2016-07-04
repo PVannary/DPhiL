@@ -28,6 +28,11 @@ DFL National Headquarters approved ​ supporting colors​ : 
 
 body {
     background-color: #F0F0EC;
+    color: #002147;
+}
+
+html, body {
+  height: 100%;
 }
 
 a {
@@ -47,6 +52,7 @@ a {
     border-bottom: 2px solid #002147;
     padding: 0px 20px;
     background-color: #F0F0EC;
+    opacity: 0.9;
 }
 
 @media (max-width: 1125px) {
@@ -153,9 +159,24 @@ a {
 
 #body-wrapper {
     padding-top: 55px;
-    min-height: 732px;
+    min-height: 100%;
+    margin-bottom: -175px;
+}
+
+#body-wrapper:after {
+  content: "";
+  display: block;
+}
+
+#footer, #body-wrapper:after {
+  height: 175px;
 }
 
 #footer h3 {
     border-bottom: 1px solid #002147;
+}
+
+@font-face {
+    font-family: Tex;
+    src: url('../fonts/tex-gyre-adventor.regular.otf');
 }
