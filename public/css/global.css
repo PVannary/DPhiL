@@ -30,6 +30,10 @@ body {
     background-color: #F0F0EC;
 }
 
+a {
+    color: #002147;
+}
+
 .jumbotron h2 {
     font-family: 'Petit Formal Script', cursive;
     font-size: 40px;
@@ -87,12 +91,21 @@ body {
     background-color: #002147;
 }
 
+.hovered {
+    color: #C3C8C8;
+    background-color: #002147;
+}
+
+.dropdown-toggle {
+    font-size: 16px;
+}
+
 .dropdown:hover .dropdown-menu {
     display: block;
 }
 
 .dropdown-menu {
-    border: 2px solid #002147;
+    border-top: 2px solid #002147;
 }
 
 .dropdown-menu {
@@ -101,7 +114,7 @@ body {
 }
 
 .navbar-toggle {
-    background-color:#002147;
+    background-color: #002147;
 }
 
 .navbar-toggle span {
