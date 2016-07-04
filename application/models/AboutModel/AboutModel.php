@@ -31,7 +31,7 @@ class AboutModel extends Model {
                 break;
             case 'chapter_history':
                 $this->_contentTitle = 'Chapter History';
-                $this->_pageContent = " <p>On February 4, 2001, Delta Phi Lambda was officially established at Georgia State University. The founding class of five, Linda Tran, Vinci Kawn, Katie Lau, Seng Chanvelap, and Ka Xiong, embraced a future of exciting and inspiring events that suddenly faded with the sunset because their numbers lacked the ability to survive as an active chapter. Reawakening the organization would be up to future generations, willing to risk failure for a new flight.</p>
+                $this->_pageContent = "<p>On February 4, 2001, Delta Phi Lambda was officially established at Georgia State University. The founding class of five, Linda Tran, Vinci Kawn, Katie Lau, Seng Chanvelap, and Ka Xiong, embraced a future of exciting and inspiring events that suddenly faded with the sunset because their numbers lacked the ability to survive as an active chapter. Reawakening the organization would be up to future generations, willing to risk failure for a new flight.</p>
                         <p>It began with Ms. Jennifer Chow who embarked her first year of college at Georgia State University in the fall of 2004 seeking new challenges and opportunities. The lack of school spirit and school involvement from the Asian students motivated Ms. Chow to find an organization that would seek individuals who will change the image correspondent to the Asian population at Georgia State University. Jennifer discovered a pre-existing Delta Phi Lambda chapter at Georgia State University. At once, she emailed contacts listed on the GSU Delta Phi Lambda website. By contacting Ms. Le Luong, the UGA DFL president at that time, Jennifer Chow was introduced to founder Anh Ngoc Nguyen who provided information and encouraged her to bring the organization back to life on campus and introduced her to GSU freshman Lauren Soriano who was also interested in bringing back the sorority.</p>
                         <p>At first, Ms. Lauren Soriano had much skepticism towards any kind of sorority because of the lack of sisterhood she saw and heard about at Georgia State University. Nothing about being in a sorority intrigued her except for her older sister Stephanie, who attended the University of Georgia and was very adamant about Delta Phi Lambda and tried numerous times to get Lauren involved in the reactivation of Delta Phi Lambda at Georgia State University. Although Lauren knew the sorority was something she was interested in, she didn't pursue the sorority because of the fear of following in her sister's footsteps. Everything started to come together when Jennifer Chow contacted Lauren about recruiting girls to meet Anh Ngoc Nguyen. Lauren remembered that she met a girl, Lena Chen Quach, that was also interested in DFL at an international student association retreat and commited herself to reaching out to her as well.</p>
                         <p>In the summer of 2004, Lena Chen Quach was introduced to Jennifer and Lauren who were interested in the reactivation of Delta Phi Lambda at Georgia State University. Lena had entered Georgia State University as a freshman in the fall of 2003 with the anticipation of meeting new friends but immediately noticed that majority of the enrolled students commuted to school rather than stayed on campus, finding it hard to associate with other pupils. It was difficult to find peers that could relate to her Asian background because students there already had their own circle of friends established. She had signed up for Asian-interest clubs but she discovered that they lacked motivation in what they wanted to do. Instantly interested when Lena came across a Delta Phi Lambda rush flyer from the University of Georgia, she contacted Rachelle Garcia, President of the National Board by email, and was later contacted by the founder Anh Ngoc Nguyen.</p>
@@ -39,7 +39,25 @@ class AboutModel extends Model {
                 break;
             case 'preamble':
                 $this->_contentTitle = 'Preamble';
-                $this->_pageContent = ' <p>"We, the sisters of Delta Phi Lambda, pledge to wholly dedicate our mind, body, and spirit to the completion of our mission. We will seek to improve the image of the Asian American. We will achieve this by acknowledging and spreading our unique Asian heritage. The bond between the sisters will set an example for others in the Asian community. We will set this example by displaying the virtues of loyalty, honesty, respect, dedication, integrity, discipline, and academic excellence. We hold these virtues to be true and will execute them in every venture the sorority will undertake. Delta Phi Lambda will remain strong through unity, and our legacy will live on through the works of the sisters."</p>';
+                $this->_pageContent = '<p style="margin-bottom: 15px;">"We, the sisters of Delta Phi Lambda, pledge to wholly dedicate our mind, body, and spirit to the completion of our mission. We will seek to improve the image of the Asian American. We will achieve this by acknowledging and spreading our unique Asian heritage. The bond between the sisters will set an example for others in the Asian community. We will set this example by displaying the virtues of loyalty, honesty, respect, dedication, integrity, discipline, and academic excellence. We hold these virtues to be true and will execute them in every venture the sorority will undertake. Delta Phi Lambda will remain strong through unity, and our legacy will live on through the works of the sisters."</p>
+                    <div class="row" style="padding: 15px 0px; border-top: 2px solid #C3C8C8;">
+                        <div class="col-sm-6 text-center"><img src="../public/images/dfl_crest.png" /></div>
+                        <div class="col-sm-6"><h2>Virtues</h2>
+                            <ul style="list-style-type:square">
+                                <li>Loyalty</li>
+                                <li>Honesty</li>
+                                <li>Respect</li>
+                                <li>Dedication</li>
+                                <li>Integrity</li>
+                                <li>Discipline</li>
+                                <li>Academic Excellence</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-6"><h2>Vision Statement</h2><p>"Delta Phi Lambda will be the sorority that is recognized by universities and among the greater fraternal community for its progressive initiatives that aim to develop women into strong, independent leaders."</p></div>
+                    <div class="col-sm-6"><h2>Mission Statement</h2><p>"Delta Phi Lambda Sorority, Inc. advocates Asian awareness and empowers women leaders through its values-based programs and everlasting sisterhood."</p></div>
+                    </div>';
                 break;
         }
     }
