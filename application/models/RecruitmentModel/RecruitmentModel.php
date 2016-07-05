@@ -21,21 +21,9 @@ class RecruitmentModel extends Model {
         /* temporary code */
 
         switch($this->_contentPage) {
-            case 'antihazing':
-                $this->_contentTitle = 'Anti-Hazing Statement';
-                $this->_pageContent = "<p>No chapter, colony, member or alumna of Delta Phi Lambda Sorority, Inc. (\"D Phi L\") shall condone hazing in any form and defines hazing as \"Any action taken or situation created, intentionally, whether on or off fraternity premises, to produce mental or physical discomfort, embarrassment, harassment, or ridicule.</p>
-                    <p>Activities included in this definition are:</p>
-                    <ul>
-                        <li>Any morally degrading or humiliating games and activities; and any other activities which are not consistent with academic achievement, fraternal law, ritual or policy or the regulations and policies of the educational institution or applicable state law.</li>
-                        <li>Any action or situation which recklessly or intentionally endangers the mental or physical health and/or safety of an individual for the purpose of initiation or admission into or association with D Phi L.</li>
-                        <li>Brutality of a physical nature such as whipping, paddling, beating, branding, forced calisthenics, exposure to the elements; forced consumption of any food, liquor, drug or other substance; or other forced elements; or other forced activity which could adversely affect the mental or physical health or safety of the individual.</li>
-                        <li>Any activity that could subject the individual to mental or physical stress such as sleep deprivation, forced exclusion from social contact, forced contact which could result in embarrassment, or any other activity that could adversely affect the mental or physical health or dignity of the individual.</li>
-                        <li>Quests, treasure hunts, scavenger hunts, or any other such activities carried on outside or inside of the confines of the chapter house.</li>
-                        <li>Wearing of public apparel which is conspicuous and not normally in good taste.</li>
-                        <li>Engaging in public stunts and buffoonery.</li>
-                        <li>Forcing or requiring the violation of the chapter's respective university policies, federal, state or local law.</li>
-                    </ul>
-                    <p>Any activity, as described above, upon which the initiation or admission into or association with D Phi L may be directly or indirectly conditioned, shall be presumed to be a \"forced\" activity, the willingness of an individual to participate in such an activity notwithstanding.</p>";
+            case 'faqs':
+                $this->_contentTitle = 'Recruitment FAQs';
+                $this->_pageContent = "";
                 break;
         }
     }
