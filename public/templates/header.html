@@ -10,13 +10,13 @@
 
             <a class="navbar-brand" href="<?php echo HOST_NAME; ?>" style="height:50px;"><img src="<?php echo IMG_DFL_CREST; ?>" alt="DFL Crest" style="height:50px; margin-right:5px;"></a>
 
-            <div id="slogan" class="text-left">
-                <!--<div style="font-family: 'Petit Formal Script', cursive; font-weight: bold; font-size: 20px"><?php echo SITE_HEADER; ?></div>-->
-
-                <div style="font-family: 'Tex'; font-size: 23px"><?php echo SITE_HEADER; ?></div>
+            <div class="text-left">
+                <!--<div style="font-family: 'Tex'; font-size: 23px"><?php echo SITE_HEADER; ?></div>-->
+                <div class="slogan-header"><?php echo SITE_HEADER; ?></div>
 
                 <?php foreach(unserialize(SITE_SUBHEADER) as $subHeader): ?>
-                    <div style="font-size: 12px;"><?php echo $subHeader; ?></div>
+                    <!--<div style="font-size: 12px;"><?php echo $subHeader; ?></div>-->
+                    <div class="slogan-subheader"><?php echo $subHeader; ?></div>
                 <?php endforeach; ?>
             </div>
         </div>
