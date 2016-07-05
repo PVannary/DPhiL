@@ -38,7 +38,8 @@ define('SITE_NAV', serialize(
                 'children' => array(
                     array('title' => 'Chapter History',  'url' => 'about/chapter_history',  'icon' => '', 'children' => array()),
                     array('title' => 'National History', 'url' => 'about/national_history', 'icon' => '', 'children' => array()),
-                    array('title' => 'Preamble',         'url' => 'about/preamble',         'icon' => '', 'children' => array())
+                    array('title' => 'Preamble',         'url' => 'about/preamble',         'icon' => '', 'children' => array()),
+                    array('title' => 'Policies',         'url' => 'about/policies',         'icon' => '', 'children' => array())
                     )
                 ),
             'Sisters' => array(
@@ -55,7 +56,7 @@ define('SITE_NAV', serialize(
                 'url' => '',
                 'icon' => 'fa fa-file-text',
                 'children' => array(
-                    array('title' => 'Anti-Hazing', 'url' => 'recruitment/antihazing', 'icon' => '','children' => array())
+                    array('title' => 'Recruitment FAQs', 'url' => 'recruitment/faqs', 'icon' => '','children' => array())
                     )
                 ),
             'Philanthropy' => array(
