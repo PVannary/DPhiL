@@ -33,6 +33,9 @@ class AboutModel extends Model {
                 $this->_contentTitle = 'Preamble';
                 $this->_pageContent  = $this->_getContentFromDatabase($this->_contentTitle);
                 break;
+            case 'policies':
+                $this->_contentTitle = 'Policies';
+                $this->_pageContent  = $this->_getContentFromDatabase($this->_contentTitle);
         }
     }
 
