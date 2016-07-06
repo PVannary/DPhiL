@@ -48,7 +48,7 @@ define('SITE_NAV', serialize(
                 'icon' => 'fa fa-users',
                 'children' => array(
                     array('title' => 'Chapter Roster',  'url' => 'sisters/roster', 'icon' => '', 'children' => array()),
-                    array('title' => 'Chapter Leaders', 'url' => 'sister/leaders', 'icon' => '', 'children' => array()),
+                    array('title' => 'Chapter Leaders', 'url' => 'sisters/leaders', 'icon' => '', 'children' => array()),
                     )
                 ),
             'Recruitment' => array(
