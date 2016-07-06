@@ -27,12 +27,38 @@ DFL National Headquarters approved ​ supporting colors​ : 
  */
 
 body {
-    background-color: #F0F0EC;
+    background-color: #FFFFFF;/* Snow White #F0F0EC; */
     color: #002147;
 }
 
 html, body {
   height: 100%;
+}
+
+.slogan-header {
+    font-family: 'Tex';
+    font-size: 23px;
+}
+
+
+.slogan-subheader {
+    font-size: 12px;
+}
+
+/* Responsive Text Size */
+@media screen and (max-width: 992px) {
+
+}
+
+@media screen and (max-width: 768px) {
+    .slogan-header {
+        font-family: 'Tex';
+        font-size: 13px;
+    }
+
+    .slogan-subheader {
+        font-size: 12px;
+    }
 }
 
 a {
@@ -51,11 +77,11 @@ a {
 .navbar {
     border-bottom: 2px solid #002147;
     padding: 0px 20px;
-    background-color: #F0F0EC;
+    background-color: #FFFFFF; /*#F0F0EC;*/
     opacity: 0.9;
 }
 
-@media (max-width: 1125px) {
+@media (max-width: 1200px) {
     .navbar-header {
         float: none;
     }
@@ -143,7 +169,7 @@ a {
 #footer {
     font-size: 12px;
     color: #002147; /* #002654; */
-    background-color: #F0F0EC;
+    background-color: #FFFFFF; /* #F0F0EC; */
     border-top: 2px solid #002147;
 }
 
