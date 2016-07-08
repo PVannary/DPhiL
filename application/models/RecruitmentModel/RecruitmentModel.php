@@ -55,6 +55,7 @@ class RecruitmentModel extends Model {
                         to these requirements, please contact our Recruitment Chair.</p>
                         <label>Who do I contact regarding recruitment?</label>
                         <p>For more information, please contact our Recruitment Chair, Current Chair, at recruitment@gsudeltaphilambda.org .</p>
+                        <img src='../public/images/dfl_spring_2016_recruitment.jpg' class='img-responsive center-block' width='50%' />
                     </div>
                 </div>";
                 break;
