@@ -214,3 +214,11 @@ a {
     top: -50px; 
     visibility: hidden;
 }
+
+/* carousel styling */
+.slide {
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
