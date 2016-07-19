@@ -7,13 +7,8 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-12">
-                <?php foreach( $data->_rosterArray as $member ): ?>
-                    <?php foreach( $member as $key => $value ): ?>
-                        <?php echo $key . ' --> ' . $value; ?><br>
-                    <?php endforeach; ?>
-                <?php endforeach; ?>
-            </div>
+            <?php UILoader::loadFragment('left_menu', $data->_menu); ?>
+            <?php UILoader::loadFragment('right_roster', ''); ?>
         </div>
     </div>
 </div>

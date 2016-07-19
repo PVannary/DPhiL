@@ -7,9 +7,8 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-12">
-                <?php echo $data->_pageContent; ?>
-            </div>
+            <?php UILoader::loadFragment('left_menu', $data->_menu); ?>
+            <?php //UILoader::loadFragment('right_content', $data->_faqArray); ?>
         </div>
 
         <?php if ( $data->_contentPage == 'chapter_history'): ?>

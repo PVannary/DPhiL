@@ -91,6 +91,9 @@ define('DB_NAME', 'xeonsold_dphil');
 define('DB_USER', 'xeonsold_dphil');
 define('DB_PASS', 'GSUdphil');
 
+define('ABS_FOLD_VIEWS',     ABSOLUTE_PATH . '/application/views/');
+define('ABS_FOLD_FRAGMENTS', ABSOLUTE_PATH . '/application/views/fragments/');
+
 /**
  * database handling class
  */

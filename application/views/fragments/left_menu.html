@@ -1,0 +1,9 @@
+<div class='col-sm-3'>
+    <h4><?php echo $data['header']; ?></h4>
+
+    <ul>
+        <?php foreach( $data['content'] as $lineItems ): ?>
+            <li><a href='#'><?php echo $lineItems['title']; ?></a></li>
+        <?php endforeach; ?>
+    </ul>
+</div>

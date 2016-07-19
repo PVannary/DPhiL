@@ -5,7 +5,9 @@ class SistersModel extends Model {
     protected $_contentPage;
     protected $_pageContent;
     protected $_contentTitle;
+    protected $_classArray  = array();
     protected $_rosterArray = array();
+    protected $_menu        = array();
 
     const PAGE_TITLE = 'The Sisters - GSU Delta Phi Lambda';
 
@@ -29,13 +31,43 @@ class SistersModel extends Model {
             case 'roster':
                 $this->_contentTitle = 'Active Sisters';
                 $this->_pageContent = "";
+                $this->_classArray  = $this->_getClassesFromDataBase();
                 $this->_rosterArray = $this->_getRosterFromDataBase();
+                $this->_setMenu();
                 break;
         }
     }
 
-    protected function _getContentFromDatabase() {
+    protected function _setMenu() {
+        $this->_menu['header']  = 'Classes';
+        $this->_menu['content'] = array();
+
+        foreach ( $this->_classArray as $classItem ) {
+            $listItem = array('title' => $classItem['class_name'] . ' Class (' . $classItem['semester'] . ')');
+            $this->_menu['content'][] = $listItem;
+        }
+    }
+
+    protected function _getClassesFromDatabase() {
         /* Database query here */
+        $dbh        = DB::getDbh();
+        $classArray = array();
+
+        $query = $dbh->prepare(sprintf(
+            "SELECT class_id,
+                    class_name,
+                    style_name,
+                    semester,
+                    num_of_members
+               FROM class_table"
+                ));
+        $query->execute();
+
+        while ( $row = $query->fetch(PDO::FETCH_ASSOC) ) {
+            $classArray[$row['class_id']] = $row;
+        }
+
+        return $classArray;
     }
 
     protected function _getRosterFromDatabase() {
