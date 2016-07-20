@@ -25,11 +25,11 @@ class SistersModel extends Model {
 
         switch($this->_contentPage) {
             case 'leaders':
-                $this->_contentTitle = 'Sister Leadership';
+                $this->_contentTitle = 'Gamma Chapter Leaders';
                 $this->_pageContent = "";
                 break;
             case 'roster':
-                $this->_contentTitle = 'Active Sisters';
+                $this->_contentTitle = 'Gamma Chapter Roster';
                 $this->_pageContent = "";
                 $this->_classArray  = $this->_getClassesFromDataBase();
                 $this->_rosterArray = $this->_getRosterFromDataBase();
