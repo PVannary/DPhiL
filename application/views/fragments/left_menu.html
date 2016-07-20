@@ -3,7 +3,7 @@
 
     <ul style="list-style-type:none;">
         <?php foreach( $data['content'] as $lineItems ): ?>
-            <li><a href='#'><?php echo $lineItems['title']; ?></a></li>
+            <li><a href="#" data-id="<?php echo $lineItems['attribute']; ?>"><?php echo $lineItems['title']; ?></a></li>
         <?php endforeach; ?>
     </ul>
 </div>

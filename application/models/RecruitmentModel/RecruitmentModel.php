@@ -26,7 +26,10 @@ class RecruitmentModel extends Model {
         $this->_menu['content'] = array();
 
         foreach ( $this->_faqArray as $faqItem ) {
-            $listItem = array('title' => $faqItem['question']);
+            $listItem = array(
+                'title' => $faqItem['question'],
+                'attribute' => ''
+                );
             $this->_menu['content'][] = $listItem;
         }
     }

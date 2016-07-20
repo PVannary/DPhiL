@@ -1,14 +1,39 @@
+<script>
+    $(document).ready(function() {
+        $('li a').click(function() {
+            var id      = $(this).data('id');
+            var pageUrl = document.URL.replace('#', '') + '/' + id;
+
+             $.ajax({
+                url: pageUrl,
+                type: 'GET',
+                data: { class: id },
+                success: function(data) {
+                    var jsonParsed = JSON.parse(data);
+
+                    $('#sisters-chapter-title').html(jsonParsed.title);
+                    $('#roster_pane').replaceWith(jsonParsed.content);
+                },
+                error: function(xhr, desc, err) {
+                    console.log(xhr);
+                    console.log("Details: " + desc + "\nError:" + err);
+                }
+            });
+        });
+    });
+</script>
+
 <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
         <div class="row">
             <div class="col-lg-12">
-                <h2 id="about-chapter-title"class="text-center"><?php echo $data->_contentTitle; ?></h2>
+                <h2 id="sisters-chapter-title"class="text-center"><?php echo $data->_contentTitle; ?></h2>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" id="main_pane">
             <?php UILoader::loadFragment('left_menu', $data->_menu); ?>
-            <?php UILoader::loadFragment('right_roster', ''); ?>
+            <?php UILoader::loadFragment('right_roster', $data->_rosterArray); ?>
         </div>
     </div>
 </div>
