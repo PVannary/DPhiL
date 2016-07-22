@@ -1,5 +1,9 @@
-<div class="col-sm-9" id="roster_pane">
-    <?php foreach ($data as $member): ?>
+<div class="col-md-9" id="roster_pane">
+    <div class="row text-center" style="margin-bottom:10px;">
+        <img id="class-image" src="<?php echo $data['class_image']; ?>">
+    </div>
+
+    <?php foreach ($data['roster'] as $member): ?>
         <table style="width:100%; margin-bottom:5px; border: 1px solid #002147;">
             <thead>
                 <tr>
@@ -10,8 +14,8 @@
             </thead>
             <tbody>
                 <tr>
-                    <td style="height:200px; width:200px; background-color:#C3C8C8;">
-                        <img src="<?php echo $member['image']; ?>" height="200" width="200">
+                    <td style="width:200px; background-color:#C3C8C8;">
+                        <img src="<?php echo $member['image']; ?>" style="width: 200px;">
                     </td>
                     <td style="padding: 5px; vertical-align:top;">
                         <ul style="list-style-type: none; text-align: left; padding-left: 0px;">
