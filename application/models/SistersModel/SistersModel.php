@@ -45,20 +45,7 @@ class SistersModel extends Model {
 
         $this->_selectedClass['class_name'] = trim($this->_selectedClass['class_name']);
 
-        // class image paths
-        $imagePathJPG    = HOST_NAME . '/public/images/roster/' . strtolower(str_replace(' ', '_', $this->_selectedClass['class_name'])) . '/' . 'class.jpg';
-        $absImagePathJPG = ABSOLUTE_PATH . '/public/images/roster/' . strtolower(str_replace(' ', '_', $this->_selectedClass['class_name'])) . '/' . 'class.jpg';
-
-        $imagePathPNG    = HOST_NAME . '/public/images/roster/' . strtolower(str_replace(' ', '_', $this->_selectedClass['class_name'])) . '/' . 'class.png';
-        $absImagePathPNG = ABSOLUTE_PATH . '/public/images/roster/' . strtolower(str_replace(' ', '_', $this->_selectedClass['class_name'])) . '/' . 'class.png';
-
-        if ( file_exists($absImagePathPNG) ) {
-            $this->_rosterArray['class_image'] = $imagePathPNG;
-        } elseif ( file_exists($absImagePathJPG) ) {
-            $this->_rosterArray['class_image'] = $imagePathJPG;
-        } else {
-            $this->_rosterArray['class_image'] = IMG_DFL_PLACEHOLDER;
-        }
+        $this->_rosterArray['class_image'] = $this->_getClassImagePath($this->_selectedClass['class_name'], $this->_selectedClass['class_name']);
 
         $html = $this->_displayRoster($this->_rosterArray);
 
@@ -96,20 +83,7 @@ class SistersModel extends Model {
                 $this->_contentTitle  = 'The ' . $this->_selectedClass['style_name'] . ' (' . $this->_selectedClass['class_name'] . ' Class)';
                 $this->_pageContent   = "";
 
-                // class image paths
-                $imagePathJPG    = HOST_NAME . '/public/images/roster/' . strtolower(str_replace(' ', '_', $this->_selectedClass['class_name'])) . '/' . 'class.jpg';
-                $absImagePathJPG = ABSOLUTE_PATH . '/public/images/roster/' . strtolower(str_replace(' ', '_', $this->_selectedClass['class_name'])) . '/' . 'class.jpg';
-
-                $imagePathPNG    = HOST_NAME . '/public/images/roster/' . strtolower(str_replace(' ', '_', $this->_selectedClass['class_name'])) . '/' . 'class.png';
-                $absImagePathPNG = ABSOLUTE_PATH . '/public/images/roster/' . strtolower(str_replace(' ', '_', $this->_selectedClass['class_name'])) . '/' . 'class.png';
-
-                if ( file_exists($absImagePathPNG) ) {
-                    $this->_rosterArray['class_image'] = $imagePathPNG;
-                } elseif ( file_exists($absImagePathJPG) ) {
-                    $this->_rosterArray['class_image'] = $imagePathJPG;
-                } else {
-                    $this->_rosterArray['class_image'] = IMG_DFL_PLACEHOLDER;
-                }
+                $this->_rosterArray['class_image'] = $this->_getClassImagePath($this->_selectedClass['class_name'], $this->_selectedClass['class_name']);
 
                 $this->_setMenu($this->_selectedClass['class_name']);
                 break;
@@ -204,24 +178,31 @@ class SistersModel extends Model {
 
         while ( $row = $query->fetch(PDO::FETCH_ASSOC) ) {
             $row['class'] = trim($row['class']);
-
-            $imagePathJPG    = HOST_NAME . '/public/images/roster/' . strtolower(str_replace(' ', '_', $row['class'])) . '/' . $row['line_number'] . '.jpg';
-            $absImagePathJPG = ABSOLUTE_PATH . '/public/images/roster/' . strtolower(str_replace(' ', '_', $row['class'])) . '/' . $row['line_number'] . '.jpg';
-
-            $imagePathPNG    = HOST_NAME . '/public/images/roster/' . strtolower(str_replace(' ', '_', $row['class'])) . '/' . $row['line_number'] . '.png';
-            $absImagePathPNG = ABSOLUTE_PATH . '/public/images/roster/' . strtolower(str_replace(' ', '_', $row['class'])) . '/' . $row['line_number'] . '.png';
-
-            if ( file_exists($absImagePathPNG) ) {
-                $row['image'] = $imagePathPNG;
-            } elseif ( file_exists($absImagePathJPG) ) {
-                $row['image'] = $imagePathJPG;
-            } else {
-                $row['image'] = IMG_DFL_PLACEHOLDER;
-            }
+            $row['image'] = $this->_getClassImagePath($row['class'], $row['line_number']);
 
             $rosterArray[] = $row;
         }
 
         return $rosterArray;
+    }
+
+    protected function _getClassImagePath($class, $imageFileName) {
+        $imagePath    = HOST_NAME . '/public/images/roster/';
+        $absImagePath = ABSOLUTE_PATH . '/public/images/roster/';
+        $class        = strtolower(str_replace(' ', '_', $class));
+        $image        = '';
+
+        foreach ( glob($absImagePath . $class . '/' . $imageFileName . '.*') as $fileName ) { 
+            $image = $imagePath . $class . '/' . basename($fileName);
+            break;
+        }
+
+        if (empty($image)) {
+            $imagePath = IMG_DFL_PLACEHOLDER;
+        } else {
+            $imagePath = $image;
+        }
+
+        return $imagePath;
     }
 }
