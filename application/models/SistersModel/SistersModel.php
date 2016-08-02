@@ -13,12 +13,12 @@ class SistersModel extends Model {
     const PAGE_TITLE = 'The Sisters - GSU Delta Phi Lambda';
 
     const ROSTER_TABLE = array(
-            array('header' => 'Line Number',      'key' => 'line_number'),
-            array('header' => 'Ethnicity',        'key' => 'ethnicity'),
-            array('header' => 'Major',            'key' => 'major'),
-            array('header' => 'Position',         'key' => 'position'),
-            array('header' => 'Big Sister',       'key' => 'big_sister'),
-            array('header' => 'Little Sister(s)', 'key' => 'little_sisters')
+            array('header' => 'Line Number',      'key' => 'getLineNumber'),
+            array('header' => 'Ethnicity',        'key' => 'getEthnicity'),
+            array('header' => 'Major',            'key' => 'getMajor'),
+            array('header' => 'Position',         'key' => 'getPosition'),
+            array('header' => 'Big Sister',       'key' => 'getBigSister'),
+            array('header' => 'Little Sister(s)', 'key' => 'getLittleSisters')
         );
 
     public function __construct($module, $params) {
@@ -177,10 +177,10 @@ class SistersModel extends Model {
         $query->execute();
 
         while ( $row = $query->fetch(PDO::FETCH_ASSOC) ) {
-            $row['class'] = trim($row['class']);
-            $row['image'] = $this->_getClassImagePath($row['class'], $row['line_number']);
+            //$row['class'] = trim($row['class']);
+            //$row['image'] = $this->_getClassImagePath($row['class'], $row['line_number']);
 
-            $rosterArray[] = $row;
+            $rosterArray[] = new Sister($row);
         }
 
         return $rosterArray;
