@@ -4,10 +4,11 @@
 
 class ImageLoader {
     public function loadImage($class, $imageFileName) {
-        $imagePath    = HOST_NAME . '/public/images/roster/';
-        $absImagePath = ABSOLUTE_PATH . '/public/images/roster/';
-        $class        = strtolower(str_replace(' ', '_', $class));
-        $image        = '';
+        $imagePath     = HOST_NAME . '/public/images/roster/';
+        $absImagePath  = ABSOLUTE_PATH . '/public/images/roster/';
+        $class         = strtolower(str_replace(' ', '_', $class));
+        $imageFileName = strtolower(str_replace(' ', '_', $imageFileName));
+        $image         = '';
 
         foreach ( glob($absImagePath . $class . '/' . $imageFileName . '.*') as $fileName ) { 
             $image = $imagePath . $class . '/' . basename($fileName);
