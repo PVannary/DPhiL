@@ -43,16 +43,14 @@ class SistersModel extends Model {
         $this->_selectedClass         = $this->_getClassesFromDataBase($className);
         $this->_rosterArray['roster'] = $this->_getRosterFromDataBase($className);
 
-        $this->_selectedClass['class_name'] = trim($this->_selectedClass['class_name']);
-
-        $this->_rosterArray['class_image'] = $this->_getClassImagePath($this->_selectedClass['class_name'], $this->_selectedClass['class_name']);
+        $this->_rosterArray['class_image'] = $this->_selectedClass->getImage();
 
         $html = $this->_displayRoster($this->_rosterArray);
 
         echo json_encode(
             array(
-                'title'   => 'The ' . $this->_selectedClass['style_name'] . ' (' . $this->_selectedClass['class_name'] . ' Class)',
-                'content' => $html
+                "title"   => "The " . $this->_selectedClass->getClassDescription() . " (" . $this->_selectedClass->getClassName() . " Class)",
+                "content" => $html
             )
         );
     }
@@ -76,16 +74,17 @@ class SistersModel extends Model {
             case 'roster':
                 // set the content using ajax to keep the page consistent in its effects
                 $this->_classArray    = $this->_getClassesFromDataBase();
+
                 $this->_selectedClass = end($this->_classArray);
 
-                $this->_rosterArray['roster'] = $this->_getRosterFromDataBase($this->_selectedClass['class_name']);
+                $this->_rosterArray['roster'] = $this->_getRosterFromDataBase($this->_selectedClass->getClassName());
 
-                $this->_contentTitle  = 'The ' . $this->_selectedClass['style_name'] . ' (' . $this->_selectedClass['class_name'] . ' Class)';
+                $this->_contentTitle  = 'The ' . $this->_selectedClass->getClassDescription() . ' (' . $this->_selectedClass->getClassName() . ' Class)';
                 $this->_pageContent   = "";
 
-                $this->_rosterArray['class_image'] = $this->_getClassImagePath($this->_selectedClass['class_name'], $this->_selectedClass['class_name']);
+                $this->_rosterArray['class_image'] = $this->_selectedClass->getImage();
 
-                $this->_setMenu($this->_selectedClass['class_name']);
+                $this->_setMenu($this->_selectedClass->getClassName());
                 break;
         }
     }
@@ -97,13 +96,13 @@ class SistersModel extends Model {
         foreach ( $this->_classArray as $classItem ) {
             $class = '';
 
-            if ( $selectedValue === $classItem['class_name'] ) {
+            if ( $selectedValue === $classItem->getClassName() ) {
                 $class = 'bold-text';
             }
 
             $listItem = array(
-                'title'     => $classItem['class_name'] . ' Class (' . $classItem['semester'] . ')',
-                'attribute' => strtolower(str_replace(' ', '_', $classItem['class_name'])),
+                'title'     => $classItem->getClassName() . ' Class (' . $classItem->getSemester() . ')',
+                'attribute' => strtolower(str_replace(' ', '_', $classItem->getClassName())),
                 'class'     => $class
                 );
             $this->_menu['content'][] = $listItem;
@@ -124,7 +123,7 @@ class SistersModel extends Model {
         $query = $dbh->prepare(sprintf(
             "SELECT class_id,
                     class_name,
-                    style_name,
+                    class_description,
                     semester,
                     num_of_members
                FROM class_table
@@ -133,17 +132,16 @@ class SistersModel extends Model {
                 ));
         $query->execute();
 
-        // if a specified class is present, return the row as an associaive array
+        // if a specified class is present, return the row as GreekClass object
         if ( !empty($selectedClass) ) {
-             $row = $query->fetch(PDO::FETCH_ASSOC);
+            $row = $query->fetch(PDO::FETCH_ASSOC);
 
-            return $row;
+            return new GreekClass($row);
         } else {
             while ( $row = $query->fetch(PDO::FETCH_ASSOC) ) {
-                $classArray[$row['class_id']] = $row;
+                $classArray[$row['class_id']] = new GreekClass($row);
             }
         }
-
         return $classArray;
     }
 
@@ -177,32 +175,9 @@ class SistersModel extends Model {
         $query->execute();
 
         while ( $row = $query->fetch(PDO::FETCH_ASSOC) ) {
-            //$row['class'] = trim($row['class']);
-            //$row['image'] = $this->_getClassImagePath($row['class'], $row['line_number']);
-
             $rosterArray[] = new Sister($row);
         }
 
         return $rosterArray;
-    }
-
-    protected function _getClassImagePath($class, $imageFileName) {
-        $imagePath    = HOST_NAME . '/public/images/roster/';
-        $absImagePath = ABSOLUTE_PATH . '/public/images/roster/';
-        $class        = strtolower(str_replace(' ', '_', $class));
-        $image        = '';
-
-        foreach ( glob($absImagePath . $class . '/' . $imageFileName . '.*') as $fileName ) { 
-            $image = $imagePath . $class . '/' . basename($fileName);
-            break;
-        }
-
-        if (empty($image)) {
-            $imagePath = IMG_DFL_PLACEHOLDER;
-        } else {
-            $imagePath = $image;
-        }
-
-        return $imagePath;
     }
 }
