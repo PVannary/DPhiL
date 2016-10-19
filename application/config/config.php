@@ -47,7 +47,7 @@ define('SITE_NAV', serialize(
                 'url' => '',
                 'icon' => 'fa fa-users',
                 'children' => array(
-                    array('title' => 'Chapter Roster',  'url' => 'sisters/roster', 'icon' => '', 'children' => array()),
+                    array('title' => 'Chapter Roster',  'url' => 'sisters/roster',  'icon' => '', 'children' => array()),
                     array('title' => 'Chapter Leaders', 'url' => 'sisters/leaders', 'icon' => '', 'children' => array()),
                     )
                 ),
@@ -56,7 +56,8 @@ define('SITE_NAV', serialize(
                 'url' => '',
                 'icon' => 'fa fa-file-text',
                 'children' => array(
-                    array('title' => 'Recruitment FAQs', 'url' => 'recruitment/faqs', 'icon' => '','children' => array())
+                    array('title' => 'Recruitment FAQs',      'url' => 'recruitment/faqs',               'icon' => '','children' => array()),
+                    array('title' => 'Anti-Hazing Statement', 'url' => 'recruitment/antihaze_statement', 'icon' => '','children' => array())
                     )
                 ),
             'Philanthropy' => array(
