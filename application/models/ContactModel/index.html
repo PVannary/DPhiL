@@ -9,6 +9,10 @@
 
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
+                    <?php if ( !empty($errorArray) ) {
+                        <div class="alert alert-danger" role="alert"></div>
+
+                    } ?>
                     <form action="contact" method="POST">
                         <div class"form-group">
                             <label for="inputName">Name</label>
