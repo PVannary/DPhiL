@@ -6,6 +6,13 @@ class ContactModel extends Model{
 
     public function __construct() {
         $this->title = self::PAGE_TITLE;
+
+        //$this->_checkForErrors();
     }
 
+    protected function _checkForErrors() {
+        if ( !empty($_POST) ) {
+            $errorsArray = array();
+        }
+    }
 }
