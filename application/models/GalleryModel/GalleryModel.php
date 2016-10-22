@@ -11,16 +11,16 @@ class GalleryModel extends Model{
 
     public function __construct($module, $params) {
         $this->title = self::PAGE_TITLE;
-        $this->_imageArray = $this->_getImages();
-        $this->_setMenu();
-        $this->_setContent();
+        //$this->_imageArray = $this->_getImages();
+        //$this->_setMenu();
+        //$this->_setContent();
     }
-
+/*
     protected function _setMenu() {
     	$this->_menu['header']  = 'Category';
     	$this->_menu['content'] = array();
 
-    	$subCategory = ['Sisterhood', 'Events', 'Mixers', 'Philantrophy'];
+    	$subCategory = ['Mixers', 'Formal', 'Fundraising', 'Sisterhood', 'Philanthropy'];
 
     	foreach ( $subCategory as $categoryItem ) {
     		$listItem = array (
@@ -46,5 +46,5 @@ class GalleryModel extends Model{
         	$imageArray[] = $image;
         }
         return $imageArray;
-    }
+    }*/
 }

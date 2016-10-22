@@ -5,10 +5,12 @@ class SistersModel extends Model {
     protected $_contentPage;
     protected $_pageContent;
     protected $_contentTitle;
-    protected $_classArray    = array();
-    protected $_rosterArray   = array();
-    protected $_menu          = array();
-    protected $_selectedClass = '';
+    protected $_classArray       = array();
+    protected $_rosterArray      = array();
+    protected $_positionArray    = array();
+    protected $_menu             = array();
+    protected $_selectedClass    = '';
+    protected $_selectedPosition = '';
 
     const PAGE_TITLE = 'The Sisters - GSU Delta Phi Lambda';
 
@@ -22,22 +24,21 @@ class SistersModel extends Model {
         );
 
     public function __construct($module, $params) {
-        if ( !empty($params) ) {
+        /*if ( !empty($params) ) {
             $this->_contentPage = $params[0];
-
             // this is an ajax call and only want the html for the right pane
-            if ( !empty($params[1]) ) {
+             if ( !empty($params[1]) ) {
                 $this->_getAjaxContent($params[1]);
 
                 die;
             }
 
             $this->_setContent();
-        }
+        }*/
 
         $this->title = self::PAGE_TITLE;
     }
-
+/*
     protected function _getAjaxContent($selectedClass) {
         $className                    = ucwords(str_replace('_', ' ', $selectedClass));
         $this->_selectedClass         = $this->_getClassesFromDataBase($className);
@@ -64,12 +65,16 @@ class SistersModel extends Model {
     }
 
     protected function _setContent() {
-        /* temporary code */
+         //temporary code
 
         switch($this->_contentPage) {
             case 'leaders':
-                $this->_contentTitle = 'Gamma Chapter Leaders';
+                $this->_positionArray = $this->_getPositionsFromDatabase();
+
+                $this->_contentTitle = 'Executive Board';
                 $this->_pageContent  = "";
+
+                $this->_setLeaderMenu();
                 break;
             case 'roster':
                 // set the content using ajax to keep the page consistent in its effects
@@ -84,13 +89,30 @@ class SistersModel extends Model {
 
                 $this->_rosterArray['class_image'] = $this->_selectedClass->getImage();
 
-                $this->_setMenu($this->_selectedClass->getClassName());
+                $this->_setRosterMenu($this->_selectedClass->getClassName());
                 break;
         }
     }
+    protected function _setLeaderMenu() {
+        $this->_menu['header']  = 'Chapter Leaders';
+        $this->_menu['content'] = array();
 
-    protected function _setMenu($selectedValue) {
-        $this->_menu['header']  = 'Chapter Classes';
+        $subTitle = array('Executive Board', 'Chairs');
+
+        foreach ( $subTitle as $title ) {
+            $class = '';
+
+            $listItem = array(
+                'title'     => $title,
+                'attribute' => strtolower(str_replace(' ', '_', $title)),
+                'class'     => $class
+                );
+            $this->_menu['content'][] = $listItem;
+        }
+    }
+
+    protected function _setRosterMenu($selectedValue) {
+        $this->_menu['header']  = 'Classes';
         $this->_menu['content'] = array();
 
         foreach ( $this->_classArray as $classItem ) {
@@ -110,7 +132,7 @@ class SistersModel extends Model {
     }
 
     protected function _getClassesFromDatabase($selectedClass = '') {
-        /* Database query here */
+        //Database query here
         $dbh        = DB::getDbh();
         $classArray = array();
 
@@ -146,7 +168,7 @@ class SistersModel extends Model {
     }
 
     protected function _getRosterFromDatabase($selectedClass = '') {
-        /* Database query here */
+        //Database query here
         $dbh         = DB::getDbh();
         $rosterArray = array();
 
@@ -180,4 +202,30 @@ class SistersModel extends Model {
 
         return $rosterArray;
     }
+
+    protected function _getPositionsFromDatabase($selectedPosition = '') {
+        $dbh           = DB::getDbh();
+        $positionArray = array();
+
+        $whereClause = '';
+
+        if ( !empty($selectedPosition) ) {
+            $whereClause = 'WHERE class = "' . $selectedPosition . '"';
+        }
+
+        $query = $dbh->prepare(sprintf(
+            "SELECT position_id,
+                    title,
+                    type
+               FROM position_table
+                    $whereClause"
+            ));
+        $query->execute();
+
+        while ( $row = $query->fetch(PDO::FETCH_ASSOC) ) {
+            $positionArray[] = $row;
+        }
+
+        return $positionArray;
+    }*/
 }

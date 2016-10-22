@@ -1,5 +1,6 @@
-<script>
+<!-- <script>
     $(document).ready(function() {
+
         $('li a').click(function() {
             var id      = $(this).data('id');
             var pageUrl = document.URL.replace('#', '') + '/' + id;
@@ -14,6 +15,7 @@
                     $('#sisters-chapter-title').html(jsonParsed.title);
                     $('#roster_pane').replaceWith(jsonParsed.content);
                     //$('#class-image').attr('src', jsonParsed.image);
+                                
                 },
                 error: function(xhr, desc, err) {
                     console.log(xhr);
@@ -32,13 +34,13 @@
     <div class="col-md-8 col-md-offset-2 col-xs-12">
         <div class="row">
             <div class="col-lg-12">
-                <h2 id="sisters-chapter-title"class="text-center"><?php echo $data->_contentTitle; ?></h2>
+                <h2 id="sisters-chapter-title"class="text-center"><?php //echo $data->_contentTitle; ?></h2>
             </div>
         </div>
 
         <div class="row" id="main_pane">
-            <?php UILoader::loadFragment('left_menu', $data->_menu); ?>
-            <?php UILoader::loadFragment('right_roster', $data->_rosterArray); ?>
+            <?php //UILoader::loadFragment('left_menu', $data->_menu); ?>
+            <?php //UILoader::loadFragment('right_roster', $data->_rosterArray); ?>
         </div>
     </div>
 </div>
