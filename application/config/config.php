@@ -47,7 +47,7 @@ define('SITE_NAV', serialize(
                 'url' => '',
                 'icon' => 'fa fa-users',
                 'children' => array(
-                    array('title' => 'Chapter Roster',  'url' => 'sisters/roster', 'icon' => '', 'children' => array()),
+                    array('title' => 'Chapter Roster',  'url' => 'sisters/roster',  'icon' => '', 'children' => array()),
                     array('title' => 'Chapter Leaders', 'url' => 'sisters/leaders', 'icon' => '', 'children' => array()),
                     )
                 ),
@@ -56,7 +56,8 @@ define('SITE_NAV', serialize(
                 'url' => '',
                 'icon' => 'fa fa-file-text',
                 'children' => array(
-                    array('title' => 'Recruitment FAQs', 'url' => 'recruitment/faqs', 'icon' => '','children' => array())
+                    array('title' => 'Recruitment FAQs',      'url' => 'recruitment/faqs',               'icon' => '','children' => array()),
+                    array('title' => 'Anti-Hazing Statement', 'url' => 'recruitment/antihaze_statement', 'icon' => '','children' => array())
                     )
                 ),
             'Philanthropy' => array(
@@ -82,14 +83,19 @@ define('SITE_NAV', serialize(
 );
 
 // images
-define('IMG_DFL_CREST', HOST_NAME . '/public/images/dfl_crest.png');
-define('IMG_DFL_LOGO', HOST_NAME . '/public/images/dphil-logo.png');
+define('IMG_DFL_CREST',       HOST_NAME . '/public/images/dfl_crest.png');
+define('IMG_DFL_HEADER',      HOST_NAME . '/public/images/dphil-header-letters.png');
+define('IMG_DFL_LOGO',        HOST_NAME . '/public/images/dphil-logo.png');
+define('IMG_DFL_PLACEHOLDER', HOST_NAME . '/public/images/roster/roster-placeholder.png');
 
 // DB Settings
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'xeonsold_dphil');
 define('DB_USER', 'xeonsold_dphil');
 define('DB_PASS', 'GSUdphil');
+
+define('ABS_FOLD_VIEWS',     ABSOLUTE_PATH . '/application/views/');
+define('ABS_FOLD_FRAGMENTS', ABSOLUTE_PATH . '/application/views/fragments/');
 
 /**
  * database handling class

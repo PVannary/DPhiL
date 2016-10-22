@@ -1,15 +1,46 @@
+<!-- <script>
+    $(document).ready(function() {
+
+        $('li a').click(function() {
+            var id      = $(this).data('id');
+            var pageUrl = document.URL.replace('#', '') + '/' + id;
+
+             $.ajax({
+                url: pageUrl,
+                type: 'GET',
+                data: { class: id },
+                success: function(data) {
+                    var jsonParsed = JSON.parse(data);
+
+                    $('#sisters-chapter-title').html(jsonParsed.title);
+                    $('#roster_pane').replaceWith(jsonParsed.content);
+                    //$('#class-image').attr('src', jsonParsed.image);
+                                
+                },
+                error: function(xhr, desc, err) {
+                    console.log(xhr);
+                    console.log("Details: " + desc + "\nError:" + err);
+                }
+            });
+
+             // apply bold font to indicate active roster, normal to rest non-actives
+             $('li a').removeClass('bold-text');
+             $(this).addClass('bold-text');
+        });
+    });
+</script>
+
 <div class="row">
-    <div class="col-lg-8 col-lg-offset-2">
+    <div class="col-md-8 col-md-offset-2 col-xs-12">
         <div class="row">
             <div class="col-lg-12">
-                <h2 id="about-chapter-title"class="text-center"><?php echo $data->_contentTitle; ?></h2>
+                <h2 id="sisters-chapter-title"class="text-center"><?php //echo $data->_contentTitle; ?></h2>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <?php echo $data->_pageContent; ?>
-            </div>
+        <div class="row" id="main_pane">
+            <?php //UILoader::loadFragment('left_menu', $data->_menu); ?>
+            <?php //UILoader::loadFragment('right_roster', $data->_rosterArray); ?>
         </div>
     </div>
 </div>

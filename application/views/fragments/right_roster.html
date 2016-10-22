@@ -1,0 +1,33 @@
+<div class="col-md-9" id="roster_pane">
+    <div class="row text-center" style="margin-bottom:10px;">
+        <img id="class-image" src="<?php echo $data['class_image']; ?>">
+    </div>
+
+    <?php foreach ($data['roster'] as $member): ?>
+        <table style="width:100%; margin-bottom:5px; border: 1px solid #002147;">
+            <thead>
+                <tr>
+                    <th style="background-color:#002147; color:#FFFFFF; padding: 5px 5px 5px 5px; text-align: left;" colspan="2">
+                        <?php echo $member->getFullLineName(); ?>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width:200px; background-color:#C3C8C8;">
+                        <img src="<?php echo $member->getImage(); ?>" style="width: 200px;">
+                    </td>
+                    <td style="padding: 5px; vertical-align:top;">
+                        <ul style="list-style-type: none; text-align: left; padding-left: 0px;">
+                            <?php foreach(SistersModel::ROSTER_TABLE as $column ): ?>
+                                <li style="padding-top: 5px; padding-bottom: 5px;">
+                                    <strong><?php echo $column['header'] . ' '; ?></strong><?php echo $member->$column['key'](); ?>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    <?php endforeach; ?>
+</div>

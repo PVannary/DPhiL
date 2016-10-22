@@ -1,23 +1,30 @@
 <div class="row">
-    <div class="col-lg-8 col-lg-offset-2">
+    <div class="col-sm-8 col-sm-offset-2">
         <div class="row">
-            <div class="col-lg-12">
-                <h2 id="about-chapter-title"class="text-center"><?php echo $data->_contentTitle; ?></h2>
+            <div class="col-sm-12">
+                <h2 id="about-chapter-title"class="text-center font-script"><?php echo $data->_contentTitle; ?></h2>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-lg-12">
-                <?php echo $data->_pageContent; ?>
+            <div class="col-sm-10 col-sm-offset-1">
+                <?php if ( $data->_contentPage == 'faqs'): ?>
+                    <?php UILoader::loadFragment('right_faq', $data->_faqArray); ?>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <img src='../public/images/dfl_fall_2016_recruitment_front.jpg' class='img-responsive center-block' />
+                        </div>
+                        <div class="col-sm-6">
+                            <img src='../public/images/dfl_fall_2016_recruitment_back.jpg' class='img-responsive center-block' />
+                        </div>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ( $data->_contentPage == 'antihaze_statement'): ?>
+                    <?php UILoader::loadFragment('right_statement', $data = ''); ?>
+                <?php endif; ?>
             </div>
         </div>
-
-        <?php if ( $data->_contentPage == 'chapter_history'): ?>
-            <div class="row">
-                <div class="col-lg-6 col-lg-offset-3">
-                    <img src="/site-dphil/public/images/about_beta_charters.png">
-                </div>
-            </div>
-        <?php endif; ?>
     </div>
 </div>
