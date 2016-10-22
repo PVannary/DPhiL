@@ -1,45 +1,59 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="media">
-                <div class="media-left media-middle">
-                    <img class="media-object img-rounded" src="/site-dphil/public/images/dfl_crest.png" alt="DFL Crest">
-                </div>
-                <div class="media-body media-middle">
-                    <div class="text-center">
-                        <h1 style="font-family: 'Petit Formal Script', cursive; font-weight: bold; font-size: 44px">Delta Phi Lambda Sorority, Inc.</h1>
-                        <h3 style="font-family: 'Raleway', sans-serif; font-size: 32px">Georgia State University</h3>
-                        <h3 style="font-family: 'Raleway', sans-serif; font-size: 32px">Gamma Chapter</h3>
-                    </div>
-                    <div>
-                        <i class="fa fa-instagram fa-2x pull-right" aria-hidden="true"></i>
-                        <i class="fa fa-twitter-square fa-2x pull-right" aria-hidden="true"></i>
-                        <i class="fa fa-facebook-square fa-2x pull-right" aria-hidden="true"></i>
-                     </div>
-                </div>
-            </div>
+<nav class="navbar navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-            <ul class="nav nav-pills nav-justified">
-                <li id="nav-pill-home" role="presentation"><a href="http://localhost/site-dphil/home/">Delta Phi Lambda</a></li>
-                <li role="presentation"><a href="#">About</a></li>
+            <a class="navbar-brand" href="<?php echo HOST_NAME; ?>" style="height:50px;"><img src="<?php echo IMG_DFL_CREST; ?>" alt="DFL Crest" style="height:50px; margin-right:5px;"></a>
+
+            <div class="text-left">
+                <!--<div style="font-family: 'Tex'; font-size: 23px"><?php echo SITE_HEADER; ?></div>-->
+                <div class="slogan-header"><?php echo SITE_HEADER; ?></div>
+
+                <?php foreach(unserialize(SITE_SUBHEADER) as $subHeader): ?>
+                    <!--<div style="font-size: 12px;"><?php echo $subHeader; ?></div>-->
+                    <div class="slogan-subheader"><?php echo $subHeader; ?></div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+            <?php foreach(unserialize(SITE_NAV) as $navItem): ?>
+                <?php $href = $navItem['url']; ?>
+
                 <li role="presentation" class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Meet the Sisters <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Chapter Roster</a></li>
-                        <li><a href="#">Chapter Leaders</a></li>
-                    </ul>
+                    <a class="dropdown-toggle"
+                       data-toggle="dropdown"
+                       role="button"
+                       aria-haspopup="true"
+                       aria-expanded="false"
+                       <?php if ( !empty($href) ): ?>
+                            <?php $href = HOST_NAME . '/' . $href; ?>
+                            href="<?php echo $href; ?>"
+                       <?php endif; ?>
+                       >
+                       <span class="<?php echo $navItem['icon']; ?>"></span>  <?php echo $navItem['title']; ?> <?php if ( empty($href) ): ?><span class="caret"></span><?php endif; ?>
+                   </a>
+                   <?php if ( !empty($navItem['children']) && empty($href) ): ?>
+                        <ul class="dropdown-menu">
+                            <?php foreach($navItem['children'] as $navSubItem): ?>
+                                <?php $subHref = $navSubItem['url']; ?>
+
+                                <?php if ( !empty($subHref) ): ?>
+                                    <?php $subHref = HOST_NAME . '/' . $subHref; ?>
+                                <?php endif; ?>
+
+                                <li><a href="<?php echo $subHref; ?>"><span class="glyphicon glyphicon-<?php echo $navSubItem['icon']; ?>"></span>  <?php echo $navSubItem['title']; ?></a></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
                 </li>
-                <li role="presentation" class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recruitment <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Recruitment FAQ</a></li>
-                        <li><a href="#">Anti-Hazing</a></li>
-                    </ul>
-                </li>
-                <li role="presentation"><a href="#">Philanthropy</a></li>
-                <li role="presentation"><a href="#">Gallery</a></li>
-                <li role="presentation"><a href="#">Contact</a></li>
+            <?php endforeach; ?>
             </ul>
         </div>
     </div>
-</div>
+</nav>

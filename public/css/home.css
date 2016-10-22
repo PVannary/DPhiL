@@ -1,28 +1,52 @@
 /* Carousel Styling */
-.slide {
-    height: 400px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+#carouselSlide {
+    height: 500px;
 }
 
+#carouselSlide img {
+    height: 500px;
+}
+/* Indicators list style */
+#carouselSlide .carousel-indicators {
+    bottom: 0;
+    left: 0;
+    margin: 10px 0 0;
+    width: 100%;
+    position: static;
+}
+/* Indicators list style */
+#carouselSlide .carousel-indicators li {
+    background-color: transparent;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    display: inline-block;
+    height: 54px;
+    margin: 0 !important;
+    width: 75px;
+    float: left;
+}
+/* Indicators images style */
+#carouselSlide .carousel-indicators img {
+    border: 2px solid #FFFFFF;
+    height: 54px;
+    width: 75px;
+    float: left;
+    overflow: auto;
+    display: block;
+    opacity: 0.5;
+}
+/* Indicators active image style */
+#carouselSlide .carousel-indicators .active img {
+    opacity: 1;
+}
 .carousel-control.left, .carousel-control.right {
     background-image: none;
     color: #337ab7;
 }
-.carousel-caption h1 {
-    font-size: 4em;
-    font-family: 'Open Sans', sans-serif;
-    text-align: center;
-    padding-bottom: .4em;
-    color: #000;
-}
-
-/* Jumbotron Styling */
-.container-fluid .jumbotron {
-    margin-bottom: 0px;
-    border-radius: 0px;
-}
-.jumbotron p {
-    font-size: 16px;
+/* grid framework */
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4,
+.col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7,
+.col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11,
+.col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    padding: 0px 15px;
 }
