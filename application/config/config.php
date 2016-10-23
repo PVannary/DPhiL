@@ -19,7 +19,7 @@ if ( $_SERVER['SERVER_NAME'] == 'localhost' || strpos($_SERVER['SERVER_NAME'], '
 if ( WEBSERVER == 0 ) {
     define('HOST_NAME', 'http://' . getHostByName(getHostName()) . '/site-dphil');
 } else {
-    define('HOST_NAME', 'http://www.gsudeltaphilambda.trinityguild.org');
+    define('HOST_NAME', 'http://gsudeltaphilambda.topofrift.com');
 }
 
 // include library
