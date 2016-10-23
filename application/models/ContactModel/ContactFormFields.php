@@ -8,6 +8,7 @@ class ContactFormFields {
     public $subject;
     public $message;
 
+    // to populate the form fields
     public function populateFormFields() {
         $this->name    = $_POST['inputName'];
         $this->email   = $_POST['inputEmail'];

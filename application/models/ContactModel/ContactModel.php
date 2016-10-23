@@ -7,10 +7,11 @@ class ContactModel extends Model {
     protected $_subject;
     protected $_message;
     protected $_formFields;
+    protected $_isSent     = false;
     protected $_errorArray = array();
 
     const PAGE_TITLE = 'Contact Us - GSU Delta Phi Lambda';
-    const EMAIL_TO   = 'vannarypov447@hotmail.com';
+    const EMAIL_TO   = 'georgiastate@deltaphilambda.org';
 
     public function __construct() {
         $this->title = self::PAGE_TITLE;
@@ -24,16 +25,24 @@ class ContactModel extends Model {
 
             if ( empty($this->_errorArray) ) {
                 $this->_sendMessage();
+                $this->_clearFormFields();
             }
         }
     }
 
+    // to clear the form fields
+    protected function _clearFormFields() {
+        unset($this->_formFields);
+    }
+
+    // to send email
     protected function _sendMessage() {
-        if (mail('vannarypov447@hotmail.com', $this->_formFields->subject, $this->_formFields->message, 'From: ' . $this->_formFields->email)) {
-            echo 'SUCCESS';
+        if ( mail(self::EMAIL_TO, $this->_formFields->subject, $this->_formFields->message, 'From: ' . $this->_formFields->email) ) {
+            $this->_isSent = true;
         }
     }
 
+    // to check for specific errors in user input
     protected function _checkForErrors() {
         $errorsArray = array();
 

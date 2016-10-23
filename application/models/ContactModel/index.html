@@ -15,6 +15,14 @@
 
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
+                    <!-- to display message on successful submission-->
+                    <?php if ( $data->_isSent ): ?>
+                        <div class="alert alert-success" role="alert">
+                            <p>Thank you for contacting us!</p>
+                        </div>
+                    <?php endif; ?>
+
+                    <!-- to display errors when applicable -->
                     <?php if ( !empty($data->_errorArray) ): ?>
                         <div class="alert alert-danger" role="alert">
                             <ul>
@@ -24,22 +32,23 @@
                             </ul>
                         </div>
                     <?php endif; ?>
+
                     <form action="contact" method="POST">
                         <div class"form-group">
                             <label for="inputName">Name</label>
-                            <input type="text" class="form-control" id="inputName" name="inputName" value="<?php echo $data->_formFields->name; ?>">
+                            <input type="text" class="form-control" id="inputName" name="inputName" value="<?php if ( isset($data->_formFields->name) ) : echo $data->_formFields->name; endif; ?>">
                         </div>
                         <div class"form-group">
                             <label for="inputEmail">Email</label>
-                            <input type="email" class="form-control" id="inputEmail" name="inputEmail" value="<?php echo $data->_formFields->email; ?>">
+                            <input type="email" class="form-control" id="inputEmail" name="inputEmail" value="<?php if ( isset($data->_formFields->email) ) : echo $data->_formFields->email; endif; ?>">
                         </div>
                         <div class"form-group">
                             <label for="inputSubject">Subject</label>
-                            <input type="text" class="form-control" id="inputSubject" name="inputSubject" value="<?php echo $data->_formFields->subject; ?>">
+                            <input type="text" class="form-control" id="inputSubject" name="inputSubject" value="<?php if ( isset($data->_formFields->subject) ) : echo $data->_formFields->subject; endif; ?>">
                         </div>
                         <div class"form-group">
                             <label for="inputMessage">Message</label>
-                            <textarea class="form-control" id="inputMessage" name="inputMessage" rows="7"><?php echo $data->_formFields->message; ?></textarea>
+                            <textarea class="form-control" id="inputMessage" name="inputMessage" rows="7"><?php if ( isset($data->_formFields->message) ) : echo $data->_formFields->message; endif; ?></textarea>
                         </div>
                         <button type="submit" class="btn btn-default pull-right">Send</button>
                     </form>
