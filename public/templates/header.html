@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="<?php echo HOST_NAME; ?>" style="height:50px;"><img src="<?php echo IMG_DFL_HEADER; ?>" height="50" width="135" alt="DFL Letters" style="margin-right:5px;"></a>
+            <a class="navbar-brand hidden-xs hidden-sm" href="<?php echo HOST_NAME; ?>" style="height:50px;"><img src="<?php echo IMG_DFL_HEADER; ?>" height="50" width="135" alt="DFL Letters" style="margin-right:5px;"></a>
 
             <div class="text-left">
                 <!--<div style="font-family: 'Tex'; font-size: 23px"><?php echo SITE_HEADER; ?></div>-->
@@ -25,8 +25,8 @@
             <?php foreach(unserialize(SITE_NAV) as $navItem): ?>
                 <?php $href = $navItem['url']; ?>
 
-                <li role="presentation" class="dropdown">
-                    <a class="dropdown-toggle"
+                <li role="presentation" class="dropdown nav-menu">
+                    <a class="dropdown-toggle nav-menu"
                        data-toggle="dropdown"
                        role="button"
                        aria-haspopup="true"
@@ -39,7 +39,7 @@
                        <span class="<?php echo $navItem['icon']; ?>"></span>  <?php echo $navItem['title']; ?> <?php if ( empty($href) ): ?><span class="caret"></span><?php endif; ?>
                    </a>
                    <?php if ( !empty($navItem['children']) && empty($href) ): ?>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu nav-menu">
                             <?php foreach($navItem['children'] as $navSubItem): ?>
                                 <?php $subHref = $navSubItem['url']; ?>
 
