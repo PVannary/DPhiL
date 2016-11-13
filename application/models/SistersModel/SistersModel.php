@@ -2,8 +2,6 @@
 
 /* about page displaying recruitment information about the chapter */
 class SistersModel extends Model {
-    protected $_contentPage;
-    protected $_pageContent;
     protected $_contentTitle;
     protected $_classArray       = array();
     protected $_rosterArray      = array();
@@ -21,19 +19,15 @@ class SistersModel extends Model {
         );
 
     public function __construct($module, $params) {
-        if ( !empty($params) ) {
-            $this->_contentPage = $params[0];
-            // this is an ajax call and only want the html for the right pane
-            if ( !empty($params[1]) && $params[0] == 'roster') {
-                $this->_getRosterAjaxContent($params[1]);
+        $this->_classArray    = $this->_getClassesFromDataBase();
 
-                die;
-            }
+        if ( !empty($params[0]) ) {
+            $this->_getRosterAjaxContent($params[0]);
 
-            $this->_setContent();
+            die;
         }
 
-        $this->title = self::PAGE_TITLE;
+        $this->_contentTitle = 'Meet the Sisters';
     }
 
     protected function _getRosterAjaxContent($selectedClass) {
@@ -62,27 +56,6 @@ class SistersModel extends Model {
         include ABS_FOLD_FRAGMENTS . 'right_roster.html';
 
         return ob_get_clean();
-    }
-
-    protected function _setContent() {
-         //temporary code
-
-        switch($this->_contentPage) {
-            case 'roster':
-                // set the content using ajax to keep the page consistent in its effects
-                $this->_contentTitle = 'Meet the Sisters';
-                $this->_pageContent  = "";
-
-                $this->_classArray    = $this->_getClassesFromDataBase();
-
-                break;
-
-            case 'leaders':
-                $this->_contentTitle = 'Fall 2016 Executive Board';
-                $this->_pageContent  = "";
-
-                break;
-        }
     }
 
     protected function _getClassesFromDatabase($selectedClass = '') {

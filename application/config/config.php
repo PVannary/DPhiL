@@ -42,14 +42,17 @@ define('SITE_NAV', serialize(
                     array('title' => 'Policies',         'url' => 'about/policies',         'icon' => '', 'children' => array())
                     )
                 ),
+            'Leaders' => array(
+                'title'    => 'Executive Board',
+                'url'      => 'leaders',
+                'icon'     => 'fa fa-suitcase',
+                'children' => array()
+                ),
             'Sisters' => array(
-                'title' => 'The Sisters',
-                'url' => '',
-                'icon' => 'fa fa-users',
-                'children' => array(
-                    array('title' => 'Chapter Roster',  'url' => 'sisters/roster',  'icon' => '', 'children' => array()),
-                    array('title' => 'Chapter Leaders', 'url' => 'sisters/leaders', 'icon' => '', 'children' => array()),
-                    )
+                'title'    => 'Sisters',
+                'url'      => 'sisters',
+                'icon'     => 'fa fa-users',
+                'children' => array()
                 ),
             'Recruitment' => array(
                 'title' => 'Recruitment',
