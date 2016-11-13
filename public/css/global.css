@@ -128,19 +128,19 @@ a {
     background-color: #002147;
 }
 
-.dropdown-toggle {
+.dropdown-toggle.nav-menu {
     font-size: 16px;
 }
 
-.dropdown:hover .dropdown-menu {
+.dropdown.nav-menu:hover .dropdown-menu {
     display: block;
 }
 
-.dropdown-menu {
+.dropdown-menu.nav-menu {
     border-top: 2px solid #002147;
 }
 
-.dropdown-menu {
+.dropdown-menu.nav-menu {
     padding-top: 0px;
     padding-bottom: 0px;
 }
