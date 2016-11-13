@@ -1,7 +1,7 @@
 <script>
     $(document).ready(function() {
 
-        $('li a').click(function(e) {
+        $('#sister_nav li a').click(function(e) {
             e.preventDefault();
 
             var id      = $(this).data('id');
@@ -17,6 +17,7 @@
 
                     $('#sisters_main_title').html(jsonParsed.title);
                     $('#sisters_main_pane').html(jsonParsed.content);
+                    $('#sisters_main_description').html(jsonParsed.description);
                 },
                 error: function(xhr, desc, err) {
                     console.log(xhr);
@@ -29,27 +30,34 @@
 </script>
 
 <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-xs-12 col-md-4 col-md-offset-4">
+                <div class="btn-group btn-block">
+                    <button type="button" style="background-color:#002147;" class="btn btn-lg btn-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Select Class <span class="caret"></span>
+                    </button>
+                    <ul id="sister_nav" class="dropdown-menu">
+                        <?php foreach ($data->_classArray as $class): ?>
+                            <li>
+                                <a href="#" data-id="<?php echo strtolower(str_replace(' ', '_', $class->getClassName())); ?>"><?php echo $class->getClassName(); ?></a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
                 <h2 id="sisters_main_title"class="text-center"><?php echo $data->_contentTitle; ?></h2>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-sm-2 col-sm-offset-1">
-                <?php if ( $data->_contentPage == 'roster'): ?>
-                    <h4>Classes</h4>
-                    <ul style="list-style-type: none; padding: 0;">
-                        <?php foreach ($data->_classArray as $class): ?>
-                            <li><a href="#" data-id="<?php echo strtolower(str_replace(' ', '_', $class->getClassName())); ?>"><?php echo $class->getClassName(); ?></a></li>
-                        <?php endforeach; ?>
-                    </ul>
-                <?php endif; ?>
-            </div>
-
-            <div id="sisters_main_pane" class="col-sm-9">
+            <div id="sisters_main_pane" class="col-xs-12">
                 <img class="img-responsive center-block" src="../public/images/dfl_fall_shoot.jpg">
+                <br>
             </div>
         </div>
     </div>

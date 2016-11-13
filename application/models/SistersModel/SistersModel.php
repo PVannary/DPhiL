@@ -45,19 +45,12 @@ class SistersModel extends Model {
         $this->_rosterArray['class_image'] = $this->_selectedClass->getImage();
 
         $html = $this->_displayRoster($this->_rosterArray);
-/*
+
         echo json_encode(
             array(
-                "title" => "The Test Title",
-                "content" => 'MOOMOO'
-            )
-        );
-*/
-        
-        echo json_encode(
-            array(
-                "title" => "The " . $this->_selectedClass->getClassDescription() . " (" . $this->_selectedClass->getClassName() . " Class)",
-                "content" => $html
+                "title"       => $this->_selectedClass->getClassName() .': ' . $this->_selectedClass->getSemester(),
+                "description" => '"' . $this->_selectedClass->getClassDescription() . '"',
+                "content"     => $html
             )
         );
         
