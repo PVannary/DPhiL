@@ -1,30 +1,62 @@
-$(document).ready(function() {
-    $('.dropdown ul').mouseover(function() {
-        var parentLink = $(this).parent().find('.dropdown-toggle.nav-menu');
+var global = (function() {
+    var siteUrl   = 'public/';
+    var jsPath    = siteUrl + 'js/';
+    var cssPath   = siteUrl + 'css/';
+    var timestamp = Math.floor(Math.random() * 100000) + 0;
 
-        if ( !parentLink.hasClass('hovered') ) {
-            parentLink.addClass('hovered');
-        }
-    });
+    this.loadScript = function(fileName) {
+        $.getScript(jsPath + fileName +'.js?v=' + timestamp, function( data, textStatus, jqxhr ) {});
+    };
 
-    $('.dropdown ul').mouseout(function() {
-        var parentLink = $(this).parent().find('.dropdown-toggle.nav-menu');
+    this.loadCSS = function(filePath) {
+        $("<link/>", {
+            rel: "stylesheet",
+            type: "text/css",
+            href: cssPath + filePath
+        }).appendTo("head");
+    };
 
-        if ( parentLink.hasClass('hovered') ) {
-            parentLink.removeClass('hovered');
-        }
-    });
+    this.loadColorPicker = function() {
+        this.loadCSS('pick-a-color/pick-a-color-1.2.3.min.css');
 
-    $('.dropdown-toggle.nav-menu').click(function(e) {
-        if ( $(this)[0].hasAttribute('href') ) {
-            window.location.href = $(this).attr('href');
-        } else {
-            e.stopPropagation();
-            $(this).addClass('hovered');
-        }
-    });
+        $.getScript(jsPath + 'pick-a-color/pick-a-color-1.2.3.min.js', function( data, textStatus, jqxhr ) {
+            $.getScript(jsPath + 'pick-a-color/tinycolor-0.9.15.min.js', function( data, textStatus, jqxhr ) {
+                $('.pick-a-color').pickAColor();
+            });
+        });
+    };
 
-    $('.dropdown-toggle.nav-menu').mouseout(function(e) {
-        $(this).removeClass('hovered');
-    });
-});
+    this.loadTinyMCE = function() {
+        $.getScript('//cdn.tinymce.com/4/tinymce.min.js', function( data, textStatus, jqxhr ) {
+            tinymce.init({
+                selector: 'textarea',
+                height: 500,
+                resize: false,
+                theme: 'modern',
+                plugins: [
+                'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+                'insertdatetime media nonbreaking save table contextmenu directionality',
+                'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc'
+                ],
+                toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                toolbar2: 'print preview media | forecolor backcolor emoticons | codesample',
+                image_advtab: true,
+                content_css: [
+                '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+                '//www.tinymce.com/css/codepen.min.css'
+                ]
+            });
+        });
+    };
+
+    this.populateModal = function(data) {
+        $('#global-title').html(data.title);
+        $('#global-body').html(data.body);
+    };
+
+    this.loadScript('global.events');
+    this.loadScript('global.services');
+
+    return self;
+}());

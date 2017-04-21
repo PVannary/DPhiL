@@ -1,4 +1,8 @@
 <?php
-    include 'application/initialize.php';
-    $GLOBALS['time'] = microtime(true);
-    $app = new App();
+
+// which version of the site
+define('SERVER', 'local');
+
+include 'application/initialize.php';
+
+$app = new App();

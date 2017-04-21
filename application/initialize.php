@@ -1,13 +1,22 @@
 <?php
 
-    // base app class
-    include 'core/App.php';
+// autoloader class
+require 'config/Autoloader.php';
 
-    // base controller class
-    include 'core/Controller.php';
+// globals class
+require 'config/Globals.php';
 
-    // base model class
-    include 'core/Model.php';
+// config class
+require 'config/' . SERVER . '/Config.php';
 
-    // include config
-    include 'config/config.php';
+// general config class
+require 'config/GeneralConfig.php';
+
+// base app class
+require 'core/App.php';
+
+// base controller class
+require 'core/Controller.php';
+
+// base model class
+require 'core/Model.php';
