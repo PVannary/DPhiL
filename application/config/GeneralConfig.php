@@ -23,10 +23,10 @@ define('SITE_CSS', SITE_URL . 'public/css/');
 define('SITE_HEADER',    'Delta Phi Lambda Sorority, Inc.');
 
 // images
-define('IMG_DFL_LOGO',    SITE_URL . '/public/images/dphil-logo.png');
-define('IMG_DFL_CREST',   SITE_URL . '/public/images/dphil-crest.png');
-define('IMG_DFL_HEADER',  SITE_URL . '/public/images/dphil-header.png');
-define('IMG_DFL_LETTERS', SITE_URL . '/public/images/dphil-header-letters.png');
+define('IMG_DFL_LOGO',    SITE_URL . 'public/images/dphil-logo.png');
+define('IMG_DFL_CREST',   SITE_URL . 'public/images/dphil-crest.png');
+define('IMG_DFL_HEADER',  SITE_URL . 'public/images/dphil-header.png');
+define('IMG_DFL_LETTERS', SITE_URL . 'public/images/dphil-header-letters.png');
 
 // modules
 define('MODULE_HOME_STATUS', 1);
