@@ -10,6 +10,6 @@ define('ABS_BASE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/');
 
 // database settings
 define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'xeonsold_framework_test');
-define('DB_USER', 'xeonsold_test');
-define('DB_PASS', 'test74108520');
+define('DB_NAME', 'xeonsold_framework_basic');
+define('DB_USER', 'xeonsold_dphil');
+define('DB_PASS', 'GSUdphil');
