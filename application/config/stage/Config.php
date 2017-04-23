@@ -1,9 +1,9 @@
 <?php
 
 // site details
-define('SITE_NAME', 'Framework Basic');
-define('APP_NAME',  'framework-basic');
-define('SITE_URL',  'http://framework-basic.topofrift.com/');
+define('SITE_NAME', 'GSU Delta Phi Lambda');
+define('APP_NAME',  'site-dphil');
+define('SITE_URL',  'http://gsudeltaphilambda.topofrift.com//');
 
 // paths
 define('ABS_BASE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/');

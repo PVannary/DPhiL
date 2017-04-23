@@ -2,7 +2,6 @@
 
 // site details
 define('SITE_NAME', 'GSU Delta Phi Lambda');
-
 define('APP_NAME',  'site-dphil');
 define('SITE_URL',  'http://localhost/site-dphil/');
 
