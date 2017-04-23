@@ -19,7 +19,9 @@ html, body {
 #content {
     padding-bottom:210px;
 }
-
+#login-nav {
+    margin-left: 15px;
+}
 #footer {
     margin-top:20px;
     position:absolute;
