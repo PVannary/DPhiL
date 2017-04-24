@@ -70,7 +70,7 @@ class HeaderModel extends AbstractModel {
         // About
         $navItem = array('id' => 'about-nav','title' => 'About', 'model' => 'About', 'link' => '', 'icon' => 'fa fa-info-circle fa-fw', 'dropdown' => array(
             array('title' => 'Chapter History',  'link' => 'about/chapter_history',   'icon' => ''),
-            array('title' => 'National History', 'link' => 'about/national_hiustory', 'icon' => ''),
+            array('title' => 'National History', 'link' => 'about/national_history',  'icon' => ''),
             array('title' => 'Preamble',         'link' => 'about/preamble',          'icon' => ''),
             array('title' => 'Policies',         'link' => 'about/policies',          'icon' => ''))
             );
@@ -86,8 +86,8 @@ class HeaderModel extends AbstractModel {
 
         // Recruitment
         $navItem = array('id' => 'recruitment-nav','title' => 'Recruitment', 'model' => 'Recruitment', 'link' => '', 'icon' => 'fa fa-file-text fa-fw', 'dropdown' => array(
-            array('title' => 'Recruitment FAQs',      'link' => 'recruiment/preamble',  'icon' => ''),
-            array('title' => 'Anti-Hazing Statement', 'link' => 'recruitment/policies', 'icon' => ''))
+            array('title' => 'Recruitment FAQs',      'link' => 'recruitment/faqs',               'icon' => ''),
+            array('title' => 'Anti-Hazing Statement', 'link' => 'recruitment/antihaze_statement', 'icon' => ''))
             );
         array_push($navigationArray, $navItem);
 
