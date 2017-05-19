@@ -69,10 +69,10 @@ class HeaderModel extends AbstractModel {
 
         // About
         $navItem = array('id' => 'about-nav','title' => 'About', 'model' => 'About', 'link' => '', 'icon' => 'fa fa-info-circle fa-fw', 'dropdown' => array(
-            array('title' => 'Chapter History',  'link' => 'about/view/chapter_history',   'icon' => ''),
-            array('title' => 'National History', 'link' => 'about/view/national_history',  'icon' => ''),
-            array('title' => 'Preamble',         'link' => 'about/view/preamble',          'icon' => ''),
-            array('title' => 'Policies',         'link' => 'about/view/policies',          'icon' => ''))
+            array('title' => 'Chapter History',  'link' => SITE_URL . 'about/view/chapter_history',  'icon' => ''),
+            array('title' => 'National History', 'link' => SITE_URL . 'about/view/national_history', 'icon' => ''),
+            array('title' => 'Preamble',         'link' => SITE_URL . 'about/view/preamble',         'icon' => ''),
+            array('title' => 'Policies',         'link' => SITE_URL . 'about/view/policies',         'icon' => ''))
             );
         array_push($navigationArray, $navItem);
 

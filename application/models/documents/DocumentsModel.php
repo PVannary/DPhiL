@@ -48,4 +48,35 @@ class DocumentsModel extends AbstractModel {
 
         return $this->_dbh->query($query);
     }
+
+    /**
+     * get a list of all documents from database
+     *
+     * @return void
+     */
+    public function getDocumentsByName($documentName) {
+        $document = array();
+        $database = new DatabaseModel($this->_dbh);
+
+        $query    = $this->getDocumentsByNameFromDb($documentName);
+        $document = $query->fetch(PDO::FETCH_ASSOC);
+
+        return $document;
+    }
+
+    public function getDocumentsByNameFromDb($documentName) {
+        $query = sprintf(
+            'SELECT
+                documents_table.document_id AS id,
+                documents_table.title AS title,
+                documents_table.content AS content
+            FROM
+                documents_table
+            WHERE
+                documents_table.title = "%s"',
+            $documentName
+        );
+
+        return $this->_dbh->query($query);
+    }
 }
