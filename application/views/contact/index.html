@@ -1,13 +1,22 @@
 <div id="content" class="container-fluid">
     <div class="row">
         <div class="col-xs-12 text-center">
-            <img src="<?php echo IMG_DFL_CREST; ?>">
+
         </div>
     </div>
 
     <div class="row">
         <div class="col-xs-4 col-xs-offset-4">
-            <?php echo $this->_loadView('forms/contact-form'); ?>
+            <div class="well" style="background-color:transparent;">
+                <h2 class="text-center">
+                    <img src="<?php echo IMG_DFL_CREST; ?>">
+                    <br>
+                    Get in Contact With Us!
+                    <br>
+                    <small>You have questions, we have answers!</small>
+                </h2>
+                <?php echo $this->_loadView('forms/contact-form'); ?>
+            </div>
         </div>
     </div>
 </div>
