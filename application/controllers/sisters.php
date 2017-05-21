@@ -35,6 +35,10 @@ class Sisters extends AbstractController {
      * @return void
      */
     public function view() {
+        $sistersModel = $this->_loadModal('sisters');
+
+        $this->_data['sisters'] = $sistersModel->getActiveSisters();
+
         $this->_loadPageView('sisters/index', $this->_data);
     }
 }

@@ -1,0 +1,47 @@
+<div id="content" class="container-fluid">
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="text-center">Sister Active House</h2>
+
+<!--
+[id] => 83
+[line_number] => 87
+[first_name] => Crystal
+[last_name] => Martin
+[nickname] => Aminae
+[ethnicity] => Vietnamese/Caucasian
+[major] => Film
+[class] => Chi
+[position] => Member
+[big_sister] => Nostalgia
+[little_sisters] => N/A
+[biography] => Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ante ac dolor blandit tincidunt. Nullam ornare congue nunc sed dignissim. Fusce aliquam ipsum nec tristique pellentesque. Nam faucibus lectus dui, vitae sagittis sapien sagittis nec
+[cross_date] => 0000-00-00
+-->
+                    <?php foreach ( $sisters as $sister ) { ?>
+                        <div class="col-xs-3">
+                            <div class="panel panel-primary">
+                                <div class="panel-body text-center">
+                                    <i class="fa fa-user-circle-o" style="font-size:200px;"></i>
+                                </div>
+
+                                <div class="panel-footer">
+                                    <dl>
+                                        <dd><?php echo $sister['line_number']; ?></dd>
+                                        <dt>
+                                            <?php echo $sister['first_name']; ?> "<i><?php echo $sister['nickname']; ?></i>" <?php echo $sister['last_name']; ?>
+                                        </dt>
+                                        <dd><?php echo $sister['ethnicity']; ?></dd>
+                                        <dd><?php echo $sister['major']; ?></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
