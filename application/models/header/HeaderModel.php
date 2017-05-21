@@ -45,9 +45,6 @@ class HeaderModel extends AbstractModel {
     private function _createNavItem($navItem) {
         if ( empty($navItem['link']) ) {
             $navItem['link'] = SITE_URL . strtolower($navItem['model']);
-            $navItem['target'] = '_self';
-        } else {
-            $navItem['target'] = '_blank';
         }
 
         if ( $this->activeModel == $navItem['model'] ) {
@@ -81,26 +78,26 @@ class HeaderModel extends AbstractModel {
         array_push($navigationArray, $navItem);
 
         // Roster
-        $navItem = array('id' => 'sisters-nav','title' => 'Sisters', 'model' => 'Sisters', 'link' => '', 'icon' => 'fa fa-users fa-fw', 'dropdown' => array());
+        $navItem = array('id' => 'sisters-nav','title' => 'Sisters', 'model' => 'Sisters', 'link' => SITE_URL . 'sisters/view', 'icon' => 'fa fa-users fa-fw', 'dropdown' => array());
         array_push($navigationArray, $navItem);
 
         // Recruitment
         $navItem = array('id' => 'recruitment-nav','title' => 'Recruitment', 'model' => 'Recruitment', 'link' => '', 'icon' => 'fa fa-file-text fa-fw', 'dropdown' => array(
-            array('title' => 'Recruitment FAQs',      'link' => 'recruitment/faqs',               'icon' => ''),
-            array('title' => 'Anti-Hazing Statement', 'link' => 'recruitment/antihaze_statement', 'icon' => ''))
+            array('title' => 'Recruitment FAQs',      'link' => SITE_URL . 'recruitment/faqs',               'icon' => ''),
+            array('title' => 'Anti-Hazing Statement', 'link' => SITE_URL . 'recruitment/antihaze', 'icon' => ''))
             );
         array_push($navigationArray, $navItem);
 
         // Philanthropy
-        $navItem = array('id' => 'philanthropy-nav','title' => 'Philanthropy', 'model' => 'Philanthropy', 'link' => '', 'icon' => 'fa fa-recycle fa-fw', 'dropdown' => array());
+        $navItem = array('id' => 'philanthropy-nav','title' => 'Philanthropy', 'model' => 'Philanthropy', 'link' => SITE_URL . 'philanthropy', 'icon' => 'fa fa-recycle fa-fw', 'dropdown' => array());
         array_push($navigationArray, $navItem);
 
         // Gallery
-        $navItem = array('id' => 'gallery-nav','title' => 'Gallery', 'model' => 'Gallery', 'link' => '', 'icon' => 'fa fa-picture-o fa-fw', 'dropdown' => array());
+        $navItem = array('id' => 'gallery-nav','title' => 'Gallery', 'model' => 'Gallery', 'link' => SITE_URL . 'gallery', 'icon' => 'fa fa-picture-o fa-fw', 'dropdown' => array());
         array_push($navigationArray, $navItem);
 
         // Contact
-        $navItem = array('id' => 'contact-nav','title' => 'Contact', 'model' => 'Contact', 'link' => '', 'icon' => 'fa fa-envelope fa-fw', 'dropdown' => array());
+        $navItem = array('id' => 'contact-nav','title' => 'Contact', 'model' => 'Contact', 'link' => SITE_URL . 'contact', 'icon' => 'fa fa-envelope fa-fw', 'dropdown' => array());
         array_push($navigationArray, $navItem);
 
         // navigation
