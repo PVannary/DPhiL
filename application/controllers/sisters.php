@@ -39,6 +39,10 @@ class Sisters extends AbstractController {
 
         $this->_data['sisters'] = $sistersModel->getActiveSisters();
 
-        $this->_loadPageView('sisters/index', $this->_data);
+        $this->_loadPageView('sisters/active-house', $this->_data);
+
+        //$this->_data['sisters'] = $sistersModel->getAlumniSisters();
+
+        //$this->_loadPageView('sisters/alumni', $this->_data);
     }
 }
