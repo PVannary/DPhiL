@@ -32,6 +32,6 @@ define('IMG_DFL_LETTERS', SITE_URL . 'public/images/dphil-header-letters.png');
 define('MODULE_HOME_STATUS', 1);
 define('MODULE_EXAMPLE_SET', 1);
 
-Database::init(DB_USER, DB_PASS, DB_NAME, DB_HOST);
+Database::init(DB_USER, DB_PASS, DB_NAME, DB_HOST, DB_PORT);
 
 SessionData::start();

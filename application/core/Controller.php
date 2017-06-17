@@ -97,9 +97,6 @@ abstract class AbstractController {
             echo '<script src="' . $file . '"></script>';
         }
 
-        // load site settings into javascript
-        echo '<script>global.loadSitePaths("' . SITE_URL . '", "' . ABS_BASE_PATH . '");</script>';
-
         // load controller JS files
         if ( !empty($this->_controllerName) ) {
             $filePath = FOLDER_JS . 'modules/' . strtolower($this->_controllerName) . '/*.js';
