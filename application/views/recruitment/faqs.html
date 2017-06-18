@@ -1,0 +1,36 @@
+<div id="content" class="container-fluid">
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+            <div class="row">
+                <div class="col-xs-9 col-xs-offset-3">
+                    <h2 class="text-center">Recruitment FAQs</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- left column containing faq -->
+                <div class="col-xs-3">
+                    <ul class="list-group">
+                        <?php foreach ($faqs as $faq) { ?>
+                            <a class="list-group-item"><?php echo $faq['question']?></a>
+                        <?php } ?>
+                    </ul>
+                </div>
+
+                <!-- right column containing faq/answers -->
+                <div class="col-xs-9">
+                    <?php foreach ($faqs as $faq) { ?>
+                        <h4><strong><?php echo $faq['question']?></strong></a></h4>
+                        <p><?php echo $faq['answer']?></p>
+                    <?php } ?>
+                </div>
+            </div>
+
+            <!-- insert front/back of current recruitment flyer-->
+            <div class="row">
+                <div class="col-xs-6"></div>
+                <div class="col-xs-6"></div>
+            </div>
+        </div>
+    </div>
+</div>

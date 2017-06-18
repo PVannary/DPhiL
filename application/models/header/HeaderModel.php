@@ -74,7 +74,7 @@ class HeaderModel extends AbstractModel {
         array_push($navigationArray, $navItem);
 
         // Executive Board
-        $navItem = array('id' => 'leaders-nav','title' => 'Executive Board', 'model' => 'Leaders', 'link' => '', 'icon' => 'fa fa-briefcase fa-fw', 'dropdown' => array());
+        $navItem = array('id' => 'leaders-nav','title' => 'Executive Board', 'model' => 'Leaders', 'link' => SITE_URL . 'leaders/view', 'icon' => 'fa fa-briefcase fa-fw', 'dropdown' => array());
         array_push($navigationArray, $navItem);
 
         // Roster
@@ -83,8 +83,8 @@ class HeaderModel extends AbstractModel {
 
         // Recruitment
         $navItem = array('id' => 'recruitment-nav','title' => 'Recruitment', 'model' => 'Recruitment', 'link' => '', 'icon' => 'fa fa-file-text fa-fw', 'dropdown' => array(
-            array('title' => 'Recruitment FAQs',      'link' => SITE_URL . 'recruitment/faqs',               'icon' => ''),
-            array('title' => 'Anti-Hazing Statement', 'link' => SITE_URL . 'recruitment/antihaze', 'icon' => ''))
+            array('title' => 'Recruitment FAQs',      'link' => SITE_URL . 'recruitment/view/faqs',               'icon' => ''),
+            array('title' => 'Anti-Hazing Statement', 'link' => SITE_URL . 'recruitment/view/antihaze', 'icon' => ''))
             );
         array_push($navigationArray, $navItem);
 

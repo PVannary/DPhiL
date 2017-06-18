@@ -26,7 +26,16 @@ class Leaders extends AbstractController {
      *
      * @return void
      */
-    public function index($params = array()) {
+    public function index() {
+        $this->view();
+    }
+
+    /**
+     * leaders view page
+     *
+     * @return void
+     */
+    public function view() {
         $this->_loadPageView('leaders/index', $this->_data);
     }
 }

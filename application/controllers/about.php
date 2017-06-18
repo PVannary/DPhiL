@@ -23,11 +23,18 @@ class About extends AbstractController {
     /**
      * index page of controller
      *
-     * @param array [ url GET parameters ]
+     * @return void
+     */
+    public function index() {
+        $this->view();
+    }
+
+    /**
+     * about view page
      *
      * @return void
      */
-    public function view($params = array()) {
+    public function view() {
         $documentsModel = $this->_loadModal('documents');
 
         $subView = (!empty($this->_params[1]) ? urldecode($this->_params[1]) : '');

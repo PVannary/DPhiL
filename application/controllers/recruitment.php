@@ -26,24 +26,26 @@ class Recruitment extends AbstractController {
      * @return void
      */
     public function index() {
-        $this->faqs();
+        $this->view();
     }
 
     /**
-     * faq page
+     * recruitment view page
      *
      * @return void
      */
-    public function faqs() {
-        $this->_loadPageView('recruitment/faqs', $this->_data);
-    }
+    public function view() {
+        $faqsModel = $this->_loadModal('faqs');
+        $subView = (!empty($this->_params[1]) ? urldecode($this->_params[1]) : '');
 
-    /**
-     * antihaze page
-     *
-     * @return void
-     */
-    public function antihaze() {
-        $this->_loadPageView('recruitment/antihaze', $this->_data);
+        switch ( $subView ) {
+            case 'faqs':
+                $this->_data['faqs'] = $faqsModel->getFaqs();
+                $this->_loadPageView('recruitment/faqs', $this->_data);
+                break;
+            case 'antihaze':
+                $this->_loadPageView('recruitment/antihaze', $this->_data);
+                break;
+        }
     }
 }
