@@ -5,55 +5,43 @@
                 <div class="col-xs-12">
                     <h2 class="text-center">Alumni Sisters</h2>
 
-<!--
-[id] => 83
-[line_number] => 87
-[first_name] => Crystal
-[last_name] => Martin
-[nickname] => Aminae
-[ethnicity] => Vietnamese/Caucasian
-[major] => Film
-[class] => Chi
-[position] => Member
-[big_sister] => Nostalgia
-[little_sisters] => N/A
-[biography] => Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ante ac dolor blandit tincidunt. Nullam ornare congue nunc sed dignissim. Fusce aliquam ipsum nec tristique pellentesque. Nam faucibus lectus dui, vitae sagittis sapien sagittis nec
-[cross_date] => 0000-00-00
--->
-                    <div class="panel panel-primary">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Line Number</th>
-                                    <th>Name</th>
-                                    <th>Ethnicity</th>
-                                    <th>Major</th>
-                                    <th>Big Sister</th>
-                                    <th>Little Sisters</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php $currentClass = ''; ?>
-                                <?php foreach ( $sisters as $sister ) { ?>
-                                    <?php if ( $sister['class'] != $currentClass ) { ?>
-                                        <?php $currentClass = $sister['class']; ?>
+                    <?php $classNum = 0; ?>
+                    <?php $isRowClosed = TRUE; ?>
+                    <?php foreach ( $sisters as $class ) { ?>
+                        <?php if ( $classNum == 0 ) { ?> <!-- start first row at first index -->
+                            <div class="row">
+                        <?php } ?>
 
+                        <?php if ( $classNum > 0 && $classNum % 4 == 0 ) { ?> <!-- start a new row after every 4th class -->
+                            </div>
+                            <br>
+                            <div class="row">
+                            <?php $isRowClosed = FALSE; ?>
+                        <?php } ?>
+
+                        <div class="col-xs-3">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th><?php echo $class['name'] . ' Class - '; ?><?php echo $class['semester']; ?></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ( $class['roster'] as $sister ) { ?>
                                         <tr>
-                                            <th colspan="6" class="bg-info"><?php echo $currentClass . ' Class'; ?></th>
+                                            <td><?php echo '#' . $sister['line_number']; ?> <?php echo $sister['first_name'] . ' "' ; ?><em><?php echo $sister['nickname'] . '" '; ?></em><?php echo $sister['last_name']; ?></td>
                                         </tr>
                                     <?php } ?>
-                                    <tr>
-                                        <td class="text-center"><?php echo $sister['line_number']; ?></td>
-                                        <td><?php echo $sister['first_name']; ?> "<i><?php echo $sister['nickname']; ?></i>" <?php echo $sister['last_name']; ?></td>
-                                        <td><?php echo $sister['ethnicity']; ?></td>
-                                        <td><?php echo $sister['major']; ?></td>
-                                        <td><?php echo $sister['big_sister']; ?></td>
-                                        <td><?php echo $sister['little_sisters']; ?></td>
-                                    </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
-                    </div>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <?php $classNum++; ?>
+                    <?php } ?>
+
+                    <?php if ( $isRowClosed == FALSE ) { ?>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

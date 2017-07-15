@@ -37,12 +37,20 @@ class Sisters extends AbstractController {
     public function view() {
         $sistersModel = $this->_loadModal('sisters');
 
-        $this->_data['sisters'] = $sistersModel->getActiveSisters();
+        $subView = (!empty($this->_params[1]) ? urldecode($this->_params[1]) : '');
 
-        $this->_loadPageView('sisters/active-house', $this->_data);
+        switch ( $subView ) {
+            case 'active_house':
+                $this->_data['sisters'] = $sistersModel->getActiveSisters();
+                $this->_loadPageView('sisters/active-house', $this->_data);
+                break;
+            case 'alumnas':
+                $sisters = $sistersModel->getAlumniSisters();
+                $sisters = $sistersModel->sortSistersByClass($sisters);
 
-        //$this->_data['sisters'] = $sistersModel->getAlumniSisters();
-
-        //$this->_loadPageView('sisters/alumni', $this->_data);
+                $this->_data['sisters'] = $sisters;
+                $this->_loadPageView('sisters/alumni', $this->_data);
+                break;
+        }
     }
 }

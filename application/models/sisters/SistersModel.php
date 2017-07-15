@@ -4,12 +4,25 @@
  * sisters model
  */
 class SistersModel extends AbstractModel {
-    const MODEL_NAME = 'Dungeons';
+    const MODEL_NAME = 'Sisters';
 
+    /**
+     * constructor
+     *
+     * @param obj   $dbh    [ database handler ]
+     * @param array $params [ parameters sent by the url ]
+     *
+     * @return void
+     */
     public function __construct($dbh) {
         parent::__construct($dbh);
     }
 
+    /**
+     * get a list of all active sisters from database
+     *
+     * @return void
+     */
     public function getActiveSisters() {
         $sisters = array();
 
@@ -20,7 +33,7 @@ class SistersModel extends AbstractModel {
                 array_push($sisters, $row);
             }
         } catch ( Exception $exception ) {
-            logger('EROR', __FUNCTION__ . ' - ' . $exception->getMessage(), 'user');
+            logger('ERROR', __FUNCTION__ . ' - ' . $exception->getMessage(), 'user');
         }
 
         return $sisters;
@@ -37,17 +50,24 @@ class SistersModel extends AbstractModel {
                 roster_table.ethnicity AS ethnicity,
                 roster_table.major AS major,
                 roster_table.class AS class,
+                roster_table.status as status,
                 roster_table.position AS position,
                 roster_table.big_sister AS big_sister,
                 roster_table.little_sisters AS little_sisters,
                 roster_table.biography AS biography,
-                roster_table.cross_date AS cross_date
+                roster_table.cross_date AS cross_date,
+                class_table.class_description as class_description,
+                class_table.semester as semester
             FROM
                 roster_table
+            LEFT JOIN
+                class_table
+            ON
+                roster_table.class_id = class_table.class_id
             WHERE
-                position = 'Member'
+                roster_table.status = 'Active'
             ORDER BY
-                roster_table.line_number DESC"
+                roster_table.roster_id DESC"
         );
 
         $query = $this->_dbh->prepare($query);
@@ -57,6 +77,11 @@ class SistersModel extends AbstractModel {
         return $query;
     }
 
+    /**
+     * get a list of all alumni sisters from database
+     *
+     * @return void
+     */
     public function getAlumniSisters() {
         $sisters = array();
 
@@ -67,7 +92,7 @@ class SistersModel extends AbstractModel {
                 array_push($sisters, $row);
             }
         } catch ( Exception $exception ) {
-            logger('EROR', __FUNCTION__ . ' - ' . $exception->getMessage(), 'user');
+            logger('ERROR', __FUNCTION__ . ' - ' . $exception->getMessage(), 'user');
         }
 
         return $sisters;
@@ -84,17 +109,24 @@ class SistersModel extends AbstractModel {
                 roster_table.ethnicity AS ethnicity,
                 roster_table.major AS major,
                 roster_table.class AS class,
+                roster_table.status as status,
                 roster_table.position AS position,
                 roster_table.big_sister AS big_sister,
                 roster_table.little_sisters AS little_sisters,
                 roster_table.biography AS biography,
-                roster_table.cross_date AS cross_date
+                roster_table.cross_date AS cross_date,
+                class_table.class_description as class_description,
+                class_table.semester as semester
             FROM
                 roster_table
+            LEFT JOIN
+                class_table
+            ON
+                roster_table.class_id = class_table.class_id
             WHERE
-                position = 'Alumna'
+                roster_table.status = 'Alumna'
             ORDER BY
-                roster_table.line_number DESC"
+                roster_table.roster_id DESC"
         );
 
         $query = $this->_dbh->prepare($query);
@@ -102,5 +134,30 @@ class SistersModel extends AbstractModel {
         $query->execute();
 
         return $query;
+    }
+
+    /**
+     * get sisters by class
+     *
+     * @return array [ list of sisters grouped by their class ]
+     */
+    public function sortSistersByClass($sisters) {
+        $newSisterArray = array();
+
+        foreach ( $sisters as $sister ) {
+            $sisterClass    = $sister['class'];
+            $sisterSemester = $sister['semester'];
+
+            if ( !isset($newSisterArray[$sisterClass]) ) {
+                $newSisterArray[$sisterClass]               = array();
+                $newSisterArray[$sisterClass]['name']       = $sisterClass;
+                $newSisterArray[$sisterClass]['semester']   = $sisterSemester;
+                $newSisterArray[$sisterClass]['roster']     = array();
+            }
+
+            array_push($newSisterArray[$sisterClass]['roster'], $sister);
+        }
+
+        return $newSisterArray;
     }
 }

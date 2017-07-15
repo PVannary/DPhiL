@@ -78,7 +78,10 @@ class HeaderModel extends AbstractModel {
         array_push($navigationArray, $navItem);
 
         // Roster
-        $navItem = array('id' => 'sisters-nav','title' => 'Sisters', 'model' => 'Sisters', 'link' => SITE_URL . 'sisters/view', 'icon' => 'fa fa-users fa-fw', 'dropdown' => array());
+        $navItem = array('id' => 'sisters-nav','title' => 'Sisters', 'model' => 'Sisters', 'link' => '', 'icon' => 'fa fa-users fa-fw', 'dropdown' => array(
+            array('title' => 'Active House', 'link' => SITE_URL . 'sisters/view/active_house', 'icon' => ''),
+            array('title' => 'Alumnas',      'link' => SITE_URL . 'sisters/view/alumnas',      'icon' => ''))
+            );
         array_push($navigationArray, $navItem);
 
         // Recruitment
